@@ -11,7 +11,7 @@ type IContentProps = {
     | 'space-around'
     | 'flex-start'
     | 'flex-end';
-  align: 'center' | 'flex-start' | 'flex-end';
+  align?: 'center' | 'flex-start' | 'flex-end';
 };
 
 export default function Content({children, space, align, pd}: IContentProps) {

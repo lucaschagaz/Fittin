@@ -1,10 +1,37 @@
-import {View, Text} from 'react-native';
 import React from 'react';
+import {Text} from './styles';
 
-export default function Title() {
+type ITextProps = {
+  size?: number;
+  color?: string;
+  weight?: 'normal' | 'bold' | 'bolder';
+  children: string;
+  mr?: number;
+  ml?: number;
+  mt?: number;
+  mb?: number;
+};
+
+export default function Title({
+  size,
+  color,
+  weight,
+  mb,
+  mt,
+  mr,
+  ml,
+  children,
+}: ITextProps) {
   return (
-    <View>
-      <Text>Title</Text>
-    </View>
+    <Text
+      color={color}
+      weight={weight}
+      size={size}
+      mb={mb}
+      mr={mr}
+      ml={ml}
+      mt={mt}>
+      {children}
+    </Text>
   );
 }
