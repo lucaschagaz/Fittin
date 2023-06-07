@@ -52,7 +52,7 @@ export default function Login() {
       <Footer>
         <Button>
           <Title size={20} weight="bold" color="TEXT">
-            Sign in
+            Entrar
           </Title>
         </Button>
         <Box>

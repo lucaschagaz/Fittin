@@ -33,7 +33,7 @@ export default function Register() {
       <Footer>
         <Button>
           <Title size={20} weight="bold" color="TEXT">
-            Sign in
+            Registar-se
           </Title>
         </Button>
         <Box>

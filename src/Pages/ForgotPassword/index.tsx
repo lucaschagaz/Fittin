@@ -1,8 +1,15 @@
 import React from 'react';
 import {Button, Content, Header, Input, Title} from '../../Components';
 import {Container} from './styles';
+import {useNavigation} from '@react-navigation/native';
 
 export default function ForgotPassword() {
+  const navigation = useNavigation();
+
+  const goToOTPCode = () => {
+    navigation.navigate('OTPCode');
+  };
+
   return (
     <Content>
       <Header>
@@ -16,7 +23,7 @@ export default function ForgotPassword() {
       <Container>
         <Input label="Email" />
       </Container>
-      <Button>
+      <Button onPress={goToOTPCode}>
         <Title color="TEXT" weight="bold">
           Enviar
         </Title>
