@@ -4,7 +4,10 @@ import {Conteiner} from './styles';
 
 type IContentProps = {
   children: React.ReactNode;
-  pd?: number;
+  pt?: number;
+  pb?: number;
+  pl?: number;
+  pr?: number;
   space?:
     | 'center'
     | 'space-between'
@@ -14,9 +17,17 @@ type IContentProps = {
   align?: 'center' | 'flex-start' | 'flex-end';
 };
 
-export default function Content({children, space, align, pd}: IContentProps) {
+export default function Content({
+  space,
+  align,
+  pt,
+  pb,
+  pl,
+  pr,
+  children,
+}: IContentProps) {
   return (
-    <Conteiner space={space} align={align} pd={pd}>
+    <Conteiner space={space} align={align} pt={pt} pb={pb} pl={pl} pr={pr}>
       {children}
     </Conteiner>
   );
