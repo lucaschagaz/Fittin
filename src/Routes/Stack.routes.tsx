@@ -8,18 +8,22 @@ import {
   Register,
   OTPCode,
 } from '../Pages';
+import Home from '../Pages/Home';
 const Stack = createNativeStackNavigator();
 
 export default function Stackroutes() {
   const {Navigator, Screen} = Stack;
 
   return (
-    <Navigator screenOptions={{headerShown: false}} initialRouteName="Login">
-      <Screen name="OnBoarding" component={Testing} />
+    <Navigator
+      screenOptions={{headerShown: false}}
+      initialRouteName="onBoarding">
+      <Screen name="OnBoarding" component={OnBoarding} />
       <Screen name="Login" component={Login} />
       <Screen name="Register" component={Register} />
       <Screen name="ForgotPassword" component={ForgotPassWord} />
       <Screen name="OTPCode" component={OTPCode} />
+      <Screen name="Home" component={Home} />
     </Navigator>
   );
 }
