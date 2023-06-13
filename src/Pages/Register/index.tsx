@@ -1,5 +1,5 @@
 import {TouchableOpacity} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import {Button, Content, Header, Input, Title} from '../../Components';
 import {
   Box,
@@ -16,6 +16,10 @@ import {useNavigation} from '@react-navigation/native';
 
 export default function Register() {
   const navigation = useNavigation();
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [password, setPasswpord] = useState('');
 
   return (
     <Content>
@@ -25,10 +29,24 @@ export default function Register() {
         </Title>
       </Header>
       <InputConteiner>
-        <Input label="Nome" />
-        <Input label="Email" />
-        <Input label="Telefone" />
-        <Input label="Senha" secureTextEntry={true} iconType="eyes-o" />
+        <Input value={name} onChangeText={text => setName(text)} label="Nome" />
+        <Input
+          value={email}
+          onChangeText={text => setEmail(text)}
+          label="Email"
+        />
+        <Input
+          value={phone}
+          onChangeText={text => setPhone(text)}
+          label="Telefone"
+        />
+        <Input
+          value={password}
+          onChangeText={text => setPasswpord(text)}
+          label="Senha"
+          secureTextEntry={true}
+          iconType="eyes-o"
+        />
       </InputConteiner>
       <Footer>
         <Button>

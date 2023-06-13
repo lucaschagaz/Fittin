@@ -20,8 +20,17 @@ import {
 
 export default function Login() {
   const [select, setSelect] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const navigation = useNavigation();
+
+  const handleLogin = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      navigation.navigate('Home');
+    }, 5000);
+  };
 
   return (
     <Content>
@@ -50,7 +59,7 @@ export default function Login() {
         </Title>
       </TextConteiner>
       <Footer>
-        <Button>
+        <Button onPress={handleLogin} isLoading={loading}>
           <Title size={20} weight="bold" color="TEXT">
             Entrar
           </Title>
