@@ -11,7 +11,7 @@ export const Container = styled.TouchableOpacity<IButtonProps>`
   height: ${({height}) => (height ? height : 60)}px;
   background-color: ${({theme, bg}) =>
     bg ? theme.COLORS[bg] : theme.COLORS.PRIMARY};
-  border-radius: 20px;
+  border-radius: 25px;
   align-items: center;
   justify-content: center;
 `;

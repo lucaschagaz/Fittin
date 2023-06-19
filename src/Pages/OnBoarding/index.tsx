@@ -12,23 +12,25 @@ import Content from '../../Components/Content';
 
 const {width, height} = Dimensions.get('screen');
 
+const bgs = ['#3425ffcb', '#de4f11d6', '#11a6ecae'];
+
 const shape = [
   {
-    bg: '#ff2c25',
+    bg: '#3425ffcb',
     id: 1,
-    photo: '../../Assets/foto01.jpg',
+    photo: '../../Assets/gym1.png',
     title: 'lorem impsum lorem impsum lorem impsum lorem impsum lorem impsum',
   },
   {
-    bg: '#dbde11',
+    bg: '#3425ffcb',
     id: 2,
-    photo: '../../Assets/foto02.jpg',
+    photo: '../../Assets/gym2.png',
     title: 'lorem impsum lorem impsum lorem impsum lorem impsum lorem impsum',
   },
   {
-    bg: '#ff2c25',
+    bg: '#3425ffcb',
     id: 3,
-    photo: '../../Assets/foto03.jpg',
+    photo: '../../Assets/gym3.png',
     title: 'lorem impsum lorem impsum lorem impsum lorem impsum lorem impsum',
   },
 ];
@@ -49,39 +51,39 @@ export default function OnBoarding() {
 
   const handleScroll = Animated.event(
     [{nativeEvent: {contentOffset: {x: scrollY}}}],
-    // {useNativeDriver: true},
+    {useNativeDriver: false},
   );
 
-  const renderItem = ({item}: {item: DataProps}) => {
-    // const backgroundAnim = scrollY.interpolate([
-    //   {inputRange: [], outputRange: []}
-    // ]);
-
+  const BackDrop = ({scrollx, id, bg}: any) => {
     const backgroundAnim = scrollY.interpolate({
-      inputRange: [
-        (item.id - 2) * width,
-        item.id - 1 + width,
-        (item.id + 1) * width + width,
-      ],
-      outputRange: ['#FFFF', item.bg, '#FFFF'],
-      extrapolate: 'extend',
+      inputRange: [0, id * width],
+      outputRange: [bg, bg],
     });
 
     return (
       <Animated.View
-        style={[styles.conteiner, {backgroundColor: backgroundAnim}]}>
-        <Image
-          style={{width: 200, height: 200}}
-          source={require('../../Assets/foto01.jpg')}
-        />
-        <Text style={{color: '#000'}}>{item.title}</Text>
-      </Animated.View>
+        style={[
+          StyleSheet.absoluteFillObject,
+          {backgroundColor: backgroundAnim},
+        ]}
+      />
     );
   };
 
-  useEffect(() => {
-    console.log(width, 'TAMANHO');
-  }, []);
+  const renderItem = ({item}: {item: DataProps}) => {
+    return (
+      <>
+        <BackDrop scrollx={scrollY} id={item.id} bg={item.bg} />
+        <Animated.View style={styles.conteiner}>
+          <Image
+            style={{width: 200, height: 200}}
+            source={require('../../Assets/gym1.png')}
+          />
+          <Text style={{color: '#000'}}>{item.title}</Text>
+        </Animated.View>
+      </>
+    );
+  };
 
   return (
     <View>
@@ -92,6 +94,8 @@ export default function OnBoarding() {
         onScroll={handleScroll}
         // onScroll={({nativeEvent}) => console.log(nativeEvent.contentOffset.x)}
         snapToInterval={width}
+        scrollEventThrottle={16}
+        pagingEnabled
         showsHorizontalScrollIndicator={true}
       />
     </View>
@@ -104,5 +108,6 @@ const styles = StyleSheet.create({
     height: height,
     alignItems: 'center',
     justifyContent: 'center',
+    padding: 20,
   },
 });
