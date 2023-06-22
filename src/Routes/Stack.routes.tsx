@@ -9,6 +9,7 @@ import {
   OTPCode,
   ChooseSex,
   Measurements,
+  Age,
 } from '../Pages';
 import Home from '../Pages/Home';
 const Stack = createNativeStackNavigator();
@@ -28,6 +29,7 @@ export default function Stackroutes() {
       <Screen name="Home" component={Home} />
       <Screen name="ChooseSex" component={ChooseSex} />
       <Screen name="Measurements" component={Measurements} />
+      <Screen name="Age" component={Age} />
     </Navigator>
   );
 }

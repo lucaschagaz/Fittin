@@ -5,7 +5,8 @@ import ForgotPassWord from './ForgotPassword';
 import Register from './Register';
 import OTPCode from './OTPCode';
 import ChooseSex from './ChooseSex';
-import Measurements from './Measurements';
+import Measurements from './UserInfo/Measurements';
+import Age from './UserInfo/Age';
 
 export {
   Login,
@@ -16,4 +17,5 @@ export {
   Register,
   ChooseSex,
   Measurements,
+  Age,
 };
