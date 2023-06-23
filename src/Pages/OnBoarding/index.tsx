@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import React, {useEffect, useRef} from 'react';
 import Content from '../../Components/Content';
+import {Button, Title} from '../../Components';
 
 const {width, height} = Dimensions.get('screen');
 
@@ -72,21 +73,15 @@ export default function OnBoarding() {
 
   const renderItem = ({item}: {item: DataProps}) => {
     return (
-      <>
-        <BackDrop scrollx={scrollY} id={item.id} bg={item.bg} />
-        <Animated.View style={styles.conteiner}>
-          <Image
-            style={{width: 200, height: 200}}
-            source={require('../../Assets/gym1.png')}
-          />
-          <Text style={{color: '#000'}}>{item.title}</Text>
-        </Animated.View>
-      </>
+      <Animated.View style={styles.conteiner}>
+        <Image style={{width: 200, height: 200}} source={require(item.photo)} />
+        <Text style={{color: '#000'}}>{item.title}</Text>
+      </Animated.View>
     );
   };
 
   return (
-    <View>
+    <Content>
       <FlatList
         data={shape}
         renderItem={renderItem}
@@ -98,7 +93,13 @@ export default function OnBoarding() {
         pagingEnabled
         showsHorizontalScrollIndicator={true}
       />
-    </View>
+      <Title>Passo 1 de 3</Title>
+      <Button>
+        <Title weight="bold" color="TEXT">
+          Prosseguir
+        </Title>
+      </Button>
+    </Content>
   );
 }
 
@@ -108,6 +109,6 @@ const styles = StyleSheet.create({
     height: height,
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 20,
+    // padding: 20,
   },
 });
