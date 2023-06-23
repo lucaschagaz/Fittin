@@ -7,6 +7,7 @@ export const Container = styled.View`
 `;
 export const ButtonContainer = styled.View`
   flex-direction: row;
+  align-items: center;
 `;
 
 export const Image = styled.Image`

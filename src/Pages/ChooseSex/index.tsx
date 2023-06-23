@@ -20,6 +20,9 @@ export default function ChooseSex() {
         </Title>
       </Header>
       <Container>
+        <Title weight="bold" mb={20} size={30}>
+          Você é:
+        </Title>
         <ButtonContainer>
           <View>
             <ButtonImage
@@ -29,6 +32,9 @@ export default function ChooseSex() {
             </ButtonImage>
             <Title>Homen</Title>
           </View>
+          <Title weight="bold" size={25}>
+            ou
+          </Title>
           <View>
             <ButtonImage
               style={{borderColor: sex == 'woman' ? '#3447d4' : '#9999'}}
