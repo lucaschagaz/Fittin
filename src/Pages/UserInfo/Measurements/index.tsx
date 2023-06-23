@@ -24,7 +24,7 @@ export default function Measurements() {
       </Header>
       <Conteiner>
         <Title size={28} weight="bold" mt={20}>
-          Altura:
+          Peso:
         </Title>
         <Box style={{marginBottom: 40}}>
           <Change onPress={() => setweight(old => old - 0.5)}>
@@ -42,7 +42,7 @@ export default function Measurements() {
           </Change>
         </Box>
         <Title size={28} weight="bold">
-          Peso:
+          Altura:
         </Title>
         <Box>
           <Change onPress={() => setheight(old => old - 1)}>

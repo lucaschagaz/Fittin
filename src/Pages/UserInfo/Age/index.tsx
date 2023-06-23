@@ -49,7 +49,7 @@ export default function Age() {
       </Conteiner>
       <Button
         style={{alignSelf: 'flex-end'}}
-        onPress={() => navigation.navigate('')}>
+        onPress={() => navigation.navigate('Measurements2')}>
         <Title weight="bold" color="TEXT">
           Proximo passo
         </Title>

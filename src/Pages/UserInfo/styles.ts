@@ -4,6 +4,12 @@ export const Conteiner = styled.View`
   flex: 1;
 `;
 
+export const PinContainer = styled.View`
+  height: 100px;
+  width: 90%;
+  align-items: center;
+`;
+
 export const Box = styled.View`
   /* flex: 1; */
   height: 100px;
