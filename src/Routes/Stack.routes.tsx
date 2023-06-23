@@ -10,6 +10,7 @@ import {
   ChooseSex,
   Measurements,
   Age,
+  Measurements2,
 } from '../Pages';
 import Home from '../Pages/Home';
 const Stack = createNativeStackNavigator();
@@ -20,7 +21,7 @@ export default function Stackroutes() {
   return (
     <Navigator
       screenOptions={{headerShown: false}}
-      initialRouteName="ChooseSex">
+      initialRouteName="OnBoarding">
       <Screen name="OnBoarding" component={OnBoarding} />
       <Screen name="Login" component={Login} />
       <Screen name="Register" component={Register} />
@@ -29,6 +30,7 @@ export default function Stackroutes() {
       <Screen name="Home" component={Home} />
       <Screen name="ChooseSex" component={ChooseSex} />
       <Screen name="Measurements" component={Measurements} />
+      <Screen name="Measurements2" component={Measurements2} />
       <Screen name="Age" component={Age} />
     </Navigator>
   );
