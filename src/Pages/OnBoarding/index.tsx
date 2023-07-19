@@ -11,28 +11,26 @@ import React, {useEffect, useRef} from 'react';
 import Content from '../../Components/Content';
 import {Button, Title} from '../../Components';
 
-const {width, height} = Dimensions.get('screen');
-
-const bgs = ['#3425ffcb', '#de4f11d6', '#11a6ecae'];
+const {width, height} = Dimensions.get('window');
 
 const shape = [
   {
-    bg: '#3425ffcb',
+    bg: '#25ff25ca',
     id: 1,
-    photo: '../../Assets/gym1.png',
-    title: 'lorem impsum lorem impsum lorem impsum lorem impsum lorem impsum',
+    photo: require('../../Assets/onBoarding/gym1.png'),
+    title: 'Um texto Fitness qualquer',
   },
   {
-    bg: '#3425ffcb',
+    bg: '#ff25c1ca',
     id: 2,
-    photo: '../../Assets/gym2.png',
-    title: 'lorem impsum lorem impsum lorem impsum lorem impsum lorem impsum',
+    photo: require('../../Assets/onBoarding/gym2.png'),
+    title: 'Saude, seguranca e representatividade',
   },
   {
     bg: '#3425ffcb',
     id: 3,
-    photo: '../../Assets/gym3.png',
-    title: 'lorem impsum lorem impsum lorem impsum lorem impsum lorem impsum',
+    photo: require('../../Assets/onBoarding/gym3.png'),
+    title: 'outro texto fitness qualquer sobre qualquer coisa',
   },
 ];
 
@@ -46,54 +44,40 @@ type DataProps = {
 export default function OnBoarding() {
   const scrollY = useRef(new Animated.Value(0)).current;
 
-  // const handleScroll = Animated.event([
-  //   {nativeEvent: {contentOffset: {x: scrollY}}},
-  // ]);
-
   const handleScroll = Animated.event(
     [{nativeEvent: {contentOffset: {x: scrollY}}}],
     {useNativeDriver: false},
   );
 
-  const BackDrop = ({scrollx, id, bg}: any) => {
-    const backgroundAnim = scrollY.interpolate({
-      inputRange: [0, id * width],
-      outputRange: [bg, bg],
-    });
-
-    return (
-      <Animated.View
-        style={[
-          StyleSheet.absoluteFillObject,
-          {backgroundColor: backgroundAnim},
-        ]}
-      />
-    );
-  };
-
   const renderItem = ({item}: {item: DataProps}) => {
     return (
-      <Animated.View style={styles.conteiner}>
-        <Image style={{width: 200, height: 200}} source={require(item.photo)} />
-        <Text style={{color: '#000'}}>{item.title}</Text>
+      <Animated.View style={[styles.conteiner]}>
+        <Image
+          style={{
+            width: 300,
+            height: 300,
+          }}
+          source={item.photo}
+        />
+        <Title mt={10}>texto</Title>
       </Animated.View>
     );
   };
 
   return (
     <Content>
-      <FlatList
+      <Animated.FlatList
         data={shape}
         renderItem={renderItem}
         horizontal={true}
         onScroll={handleScroll}
         // onScroll={({nativeEvent}) => console.log(nativeEvent.contentOffset.x)}
-        snapToInterval={width}
-        scrollEventThrottle={16}
+        snapToInterval={width - 20}
+        // scrollEventThrottle={16}
         pagingEnabled
-        showsHorizontalScrollIndicator={true}
+        showsHorizontalScrollIndicator={false}
       />
-      <Title>Passo 1 de 3</Title>
+      <Title mb={10}>Passo 1 de 3</Title>
       <Button>
         <Title weight="bold" color="TEXT">
           Prosseguir
@@ -105,10 +89,10 @@ export default function OnBoarding() {
 
 const styles = StyleSheet.create({
   conteiner: {
-    width: width,
-    height: height,
+    width: width - 20,
+    height: height / 2,
     alignItems: 'center',
     justifyContent: 'center',
-    // padding: 20,
+    paddingHorizontal: 20,
   },
 });

@@ -21,7 +21,7 @@ export default function Stackroutes() {
   return (
     <Navigator
       screenOptions={{headerShown: false}}
-      initialRouteName="OnBoarding">
+      initialRouteName="Measurements2">
       <Screen name="OnBoarding" component={OnBoarding} />
       <Screen name="Login" component={Login} />
       <Screen name="Register" component={Register} />

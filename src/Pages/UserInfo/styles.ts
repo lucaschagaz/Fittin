@@ -2,6 +2,7 @@ import styled from 'styled-components/native';
 
 export const Conteiner = styled.View`
   flex: 1;
+  align-items: center;
 `;
 
 export const PinContainer = styled.View`

@@ -8,7 +8,10 @@ import {
   View,
   NativeSyntheticEvent,
   NativeScrollEvent,
+  Text,
 } from 'react-native';
+
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default function Measurements2() {
   const [weight, setweight] = useState(75);
@@ -38,7 +41,7 @@ export default function Measurements2() {
       return (
         <View
           style={{
-            width: 3,
+            width: 10,
             height: 80,
             marginHorizontal: 5,
             alignItems: 'center',
@@ -50,7 +53,7 @@ export default function Measurements2() {
             style={{
               width: 3,
               height: 80,
-              backgroundColor: '#ff7300',
+              backgroundColor: '#001eff',
             }}></TouchableOpacity>
         </View>
       );
@@ -58,18 +61,19 @@ export default function Measurements2() {
       return (
         <View
           style={{
-            width: 3,
+            width: 10,
             height: 80,
             marginHorizontal: 5,
             alignItems: 'center',
             justifyContent: 'center',
           }}>
+          {/* <Text style={{fontSize: 18}}>{data}</Text> */}
           <TouchableOpacity
             onPress={() => setweight(data)}
             style={{
               width: 3,
               height: 35,
-              backgroundColor: '#ff7300',
+              backgroundColor: '#001eff',
             }}></TouchableOpacity>
         </View>
       );
@@ -78,7 +82,7 @@ export default function Measurements2() {
 
   const handleScroll = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
     const xx = e.nativeEvent.contentOffset.x;
-    const select = Math.floor(xx / 7) + 40;
+    const select = Math.ceil(xx / 20) + 40;
     setheight(select);
   };
 
@@ -94,16 +98,22 @@ export default function Measurements2() {
       </Header>
       <Conteiner>
         <Title size={28} weight="bold">
-          Altura:
+          Peso:
         </Title>
-        <Title size={40}>{weight} kg</Title>
         <Title size={40}>{height} kg</Title>
+        <Icon
+          name="sort-desc"
+          size={25}
+          color="#001eff"
+          style={{marginBottom: 20, marginTop: 50, marginLeft: 5}}
+        />
         <PinContainer>
           <ScrollView
             horizontal
-            // showsHorizontalScrollIndicator={false}
-            // contentContainerStyle={{paddingHorizontal: 155}}
-            snapToInterval={7}
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={{paddingHorizontal: 165}}
+            snapToInterval={20}
+            scrollEventThrottle={8}
             onMomentumScrollEnd={handleScroll}>
             {numb?.map(number => renderPin(number))}
           </ScrollView>
