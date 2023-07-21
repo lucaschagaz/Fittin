@@ -8,9 +8,9 @@ import {
   Register,
   OTPCode,
   ChooseSex,
-  Measurements,
   Age,
-  Measurements2,
+  MeasurementsWeight,
+  MeasurementsHeight,
 } from '../Pages';
 import Home from '../Pages/Home';
 const Stack = createNativeStackNavigator();
@@ -21,7 +21,7 @@ export default function Stackroutes() {
   return (
     <Navigator
       screenOptions={{headerShown: false}}
-      initialRouteName="Measurements2">
+      initialRouteName="MeasurementsWeight">
       <Screen name="OnBoarding" component={OnBoarding} />
       <Screen name="Login" component={Login} />
       <Screen name="Register" component={Register} />
@@ -29,8 +29,8 @@ export default function Stackroutes() {
       <Screen name="OTPCode" component={OTPCode} />
       <Screen name="Home" component={Home} />
       <Screen name="ChooseSex" component={ChooseSex} />
-      <Screen name="Measurements" component={Measurements} />
-      <Screen name="Measurements2" component={Measurements2} />
+      <Screen name="MeasurementsHeight" component={MeasurementsHeight} />
+      <Screen name="MeasurementsWeight" component={MeasurementsWeight} />
       <Screen name="Age" component={Age} />
     </Navigator>
   );

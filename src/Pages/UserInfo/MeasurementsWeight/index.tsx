@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Button, Content, Header, Title} from '../../../Components';
-import {Box, Change, PinContainer, Conteiner} from '../styles';
+import {Box, Change, PinContainer, Conteiner, PinBox, Pin} from '../styles';
 import {useNavigation} from '@react-navigation/native';
 import {
   ScrollView,
@@ -13,15 +13,11 @@ import {
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-export default function Measurements2() {
-  const [weight, setweight] = useState(75);
-  const [height, setheight] = useState(0);
-
+export default function MeasurementsWeight() {
+  const [weight, setweight] = useState(0);
   const [numb, setNumb] = useState<number[]>();
 
   const navigation = useNavigation();
-
-  useEffect(() => {}, []);
 
   useEffect(() => {
     const renderHeight = () => {
@@ -39,43 +35,25 @@ export default function Measurements2() {
   const renderPin = (data: number) => {
     if (data % 5 === 0) {
       return (
-        <View
-          style={{
-            width: 10,
-            height: 80,
-            marginHorizontal: 5,
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
-          <TouchableOpacity
-            // onFocus={}
-            onPress={() => setweight(data)}
+        <PinBox onPress={() => setweight(data)}>
+          <Pin
             style={{
-              width: 3,
-              height: 80,
+              height: weight == data ? 120 : 70,
               backgroundColor: '#001eff',
-            }}></TouchableOpacity>
-        </View>
+            }}
+          />
+        </PinBox>
       );
     } else {
       return (
-        <View
-          style={{
-            width: 10,
-            height: 80,
-            marginHorizontal: 5,
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
-          {/* <Text style={{fontSize: 18}}>{data}</Text> */}
-          <TouchableOpacity
-            onPress={() => setweight(data)}
+        <PinBox onPress={() => setweight(data)}>
+          <Pin
             style={{
-              width: 3,
-              height: 35,
+              height: weight == data ? 120 : 35,
               backgroundColor: '#001eff',
-            }}></TouchableOpacity>
-        </View>
+            }}
+          />
+        </PinBox>
       );
     }
   };
@@ -83,7 +61,7 @@ export default function Measurements2() {
   const handleScroll = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
     const xx = e.nativeEvent.contentOffset.x;
     const select = Math.ceil(xx / 20) + 40;
-    setheight(select);
+    setweight(select);
   };
 
   return (
@@ -100,13 +78,9 @@ export default function Measurements2() {
         <Title size={28} weight="bold">
           Peso:
         </Title>
-        <Title size={40}>{height} kg</Title>
-        <Icon
-          name="sort-desc"
-          size={25}
-          color="#001eff"
-          style={{marginBottom: 20, marginTop: 50, marginLeft: 5}}
-        />
+        <Title size={40} mb={50}>
+          {weight} kg
+        </Title>
         <PinContainer>
           <ScrollView
             horizontal
@@ -121,7 +95,7 @@ export default function Measurements2() {
       </Conteiner>
       <Button
         style={{alignSelf: 'flex-end'}}
-        onPress={() => navigation.navigate('Age')}>
+        onPress={() => navigation.navigate('MeasurementsHeight')}>
         <Title weight="bold" color="TEXT">
           Proximo passo
         </Title>

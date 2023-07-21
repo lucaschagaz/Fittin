@@ -5,8 +5,8 @@ import ForgotPassWord from './ForgotPassword';
 import Register from './Register';
 import OTPCode from './OTPCode';
 import ChooseSex from './ChooseSex';
-import Measurements from './UserInfo/Measurements';
-import Measurements2 from './UserInfo/Measurements2';
+import MeasurementsHeight from './UserInfo/MeasurementsHeight';
+import MeasurementsWeight from './UserInfo/MeasurementsWeight';
 import Age from './UserInfo/Age';
 
 export {
@@ -17,7 +17,7 @@ export {
   OTPCode,
   Register,
   ChooseSex,
-  Measurements,
+  MeasurementsHeight,
   Age,
-  Measurements2,
+  MeasurementsWeight,
 };
