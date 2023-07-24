@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Button, Content, Header, Title} from '../../Components';
+import {Button, Content, Header, Title} from '../../../Components';
 import {ButtonContainer, ButtonImage, Container, Image} from './styles';
 import {View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
@@ -28,7 +28,7 @@ export default function ChooseSex() {
             <ButtonImage
               style={{borderColor: sex == 'men' ? '#3447d4' : '#9999'}}
               onPress={() => setSex('men')}>
-              <Image source={require('../../Assets/man.png')} />
+              <Image source={require('../../../Assets/man.png')} />
             </ButtonImage>
             <Title>Homen</Title>
           </View>
@@ -39,7 +39,7 @@ export default function ChooseSex() {
             <ButtonImage
               style={{borderColor: sex == 'woman' ? '#3447d4' : '#9999'}}
               onPress={() => setSex('woman')}>
-              <Image source={require('../../Assets/woman.png')} />
+              <Image source={require('../../../Assets/woman.png')} />
             </ButtonImage>
             <Title>Mulher</Title>
           </View>
@@ -47,12 +47,10 @@ export default function ChooseSex() {
       </Container>
       <Button
         width={50}
+        title="Proximo passo"
         style={{alignSelf: 'flex-end'}}
-        onPress={() => navigation.navigate('Measurements')}>
-        <Title weight="bold" color="TEXT">
-          Proximo passo
-        </Title>
-      </Button>
+        onPress={() => navigation.navigate('Measurements')}
+      />
     </Content>
   );
 }

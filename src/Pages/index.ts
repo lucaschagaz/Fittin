@@ -4,7 +4,7 @@ import Testing from './Testin';
 import ForgotPassWord from './ForgotPassword';
 import Register from './Register';
 import OTPCode from './OTPCode';
-import ChooseSex from './ChooseSex';
+import ChooseSex from './UserInfo/ChooseSex';
 import MeasurementsHeight from './UserInfo/MeasurementsHeight';
 import MeasurementsWeight from './UserInfo/MeasurementsWeight';
 import Age from './UserInfo/Age';

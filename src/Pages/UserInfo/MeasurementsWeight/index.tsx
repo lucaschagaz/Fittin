@@ -1,20 +1,24 @@
 import React, {useEffect, useState} from 'react';
 import {Button, Content, Header, Title} from '../../../Components';
-import {Box, Change, PinContainer, Conteiner, PinBox, Pin} from '../styles';
+import {
+  Conteiner,
+  PinBox,
+  Pin,
+  MeasurementsValue,
+  ContentContainer,
+  ButtomWrapper,
+} from '../styles';
 import {useNavigation} from '@react-navigation/native';
 import {
   ScrollView,
-  TouchableOpacity,
-  View,
   NativeSyntheticEvent,
   NativeScrollEvent,
-  Text,
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default function MeasurementsWeight() {
-  const [weight, setweight] = useState(0);
+  const [weight, setweight] = useState(40);
   const [numb, setNumb] = useState<number[]>();
 
   const navigation = useNavigation();
@@ -38,7 +42,7 @@ export default function MeasurementsWeight() {
         <PinBox onPress={() => setweight(data)}>
           <Pin
             style={{
-              height: weight == data ? 120 : 70,
+              height: weight == data ? 100 : 60,
               backgroundColor: '#001eff',
             }}
           />
@@ -49,7 +53,7 @@ export default function MeasurementsWeight() {
         <PinBox onPress={() => setweight(data)}>
           <Pin
             style={{
-              height: weight == data ? 120 : 35,
+              height: weight == data ? 100 : 30,
               backgroundColor: '#001eff',
             }}
           />
@@ -60,7 +64,9 @@ export default function MeasurementsWeight() {
 
   const handleScroll = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
     const xx = e.nativeEvent.contentOffset.x;
+    console.log(xx);
     const select = Math.ceil(xx / 20) + 40;
+    console.log(select);
     setweight(select);
   };
 
@@ -74,14 +80,17 @@ export default function MeasurementsWeight() {
           Dados para criação do seu plano personalizado
         </Title>
       </Header>
+      <Title size={28} weight="bold">
+        Informe seu Peso?
+      </Title>
       <Conteiner>
-        <Title size={28} weight="bold">
-          Peso:
-        </Title>
-        <Title size={40} mb={50}>
-          {weight} kg
-        </Title>
-        <PinContainer>
+        <MeasurementsValue>
+          <Title size={40}>{weight}</Title>
+          <Title mb={5} ml={2}>
+            kg
+          </Title>
+        </MeasurementsValue>
+        <ContentContainer>
           <ScrollView
             horizontal
             showsHorizontalScrollIndicator={false}
@@ -91,15 +100,21 @@ export default function MeasurementsWeight() {
             onMomentumScrollEnd={handleScroll}>
             {numb?.map(number => renderPin(number))}
           </ScrollView>
-        </PinContainer>
+        </ContentContainer>
       </Conteiner>
-      <Button
-        style={{alignSelf: 'flex-end'}}
-        onPress={() => navigation.navigate('MeasurementsHeight')}>
-        <Title weight="bold" color="TEXT">
-          Proximo passo
-        </Title>
-      </Button>
+      <ButtomWrapper>
+        <Button
+          title="Passo anterior"
+          width={40}
+          variant="secondary"
+          // onPress={() => navigation.navigate('Measurements')}
+        />
+        <Button
+          title="Proximo passo"
+          width={40}
+          onPress={() => navigation.navigate('MeasurementsHeight')}
+        />
+      </ButtomWrapper>
     </Content>
   );
 }
