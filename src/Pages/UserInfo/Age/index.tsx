@@ -1,23 +1,45 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
 
 import {Button, Content, Header, Title} from '../../../Components';
-import {Box, Change, Conteiner} from '../styles';
+import {AgeBox, ButtomWrapper, Conteiner, ContentContainer} from '../styles';
+import {
+  ScrollView,
+  NativeSyntheticEvent,
+  NativeScrollEvent,
+  Text,
+} from 'react-native';
 
 export default function Age() {
-  const [age, setAge] = useState(16);
-
   const navigation = useNavigation();
+  const [age, setAge] = useState(12);
+
+  const [numb, setNumb] = useState<number[]>();
+
+  const scrollViewRef = useRef(null);
 
   useEffect(() => {
-    if (age < 16) {
-      alert('Idade Minima é 16 anos');
-      setAge(16);
-    } else if (age > 100) {
-      alert('Idade Maxima é 100 anos');
-      setAge(100);
-    }
-  }, [age]);
+    const renderHeight = () => {
+      const num = [];
+      for (let i = 12; i <= 100; i++) {
+        num.push(i);
+      }
+
+      setNumb(num);
+    };
+
+    renderHeight();
+  }, []);
+
+  const handleScroll = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
+    const yy = e.nativeEvent.contentOffset.y;
+    console.log(yy);
+    const select = Math.ceil(yy / 70) + 12;
+    console.log(select);
+    setAge(select);
+  };
+
+  const scrollTo = (number: number) => {};
 
   return (
     <Content>
@@ -29,31 +51,54 @@ export default function Age() {
           Dados para criação do seu plano personalizado
         </Title>
       </Header>
+      <Title size={28} weight="bold" mt={30}>
+        Informe sua Idade:
+      </Title>
       <Conteiner>
-        <Title size={28} weight="bold" mt={30}>
-          Idade:
-        </Title>
-        <Box>
-          <Change onPress={() => setAge(old => old - 1)}>
-            <Title size={30} color="TEXT">
-              -
-            </Title>
-          </Change>
-          <Title size={45}>{age} anos</Title>
-          <Change onPress={() => setAge(old => old + 1)}>
-            <Title size={30} color="TEXT">
-              +
-            </Title>
-          </Change>
-        </Box>
+        <ContentContainer style={{height: '90%'}}>
+          <ScrollView
+            contentContainerStyle={{
+              paddingHorizontal: 10,
+              paddingVertical: 70 * 2,
+            }}
+            snapToInterval={70}
+            showsVerticalScrollIndicator={false}
+            ref={scrollViewRef}
+            scrollEventThrottle={2}
+            onMomentumScrollEnd={handleScroll}>
+            {numb?.map(number => (
+              <AgeBox onPress={() => scrollTo(number)}>
+                <Text
+                  style={{
+                    fontSize: 30,
+                    fontWeight: 'bold',
+                    color: age == number ? '#001eff' : '#bdbcbc',
+                    transform: [
+                      {scale: age == number ? 2.2 : 1.3},
+                      {rotateX: age > number ? '50deg' : '0deg'},
+                      {rotateX: age < number ? '-50deg' : '0deg'},
+                    ],
+                  }}>
+                  {number}
+                </Text>
+              </AgeBox>
+            ))}
+          </ScrollView>
+        </ContentContainer>
       </Conteiner>
-      <Button
-        style={{alignSelf: 'flex-end'}}
-        onPress={() => navigation.navigate('Measurements2')}>
-        <Title weight="bold" color="TEXT">
-          Proximo passo
-        </Title>
-      </Button>
+      <ButtomWrapper>
+        <Button
+          title="Passo anterior"
+          width={40}
+          variant="secondary"
+          onPress={() => navigation.navigate('Measurements2')}
+        />
+        <Button
+          title="Proximo passo"
+          width={40}
+          onPress={() => navigation.navigate('Measurements2')}
+        />
+      </ButtomWrapper>
     </Content>
   );
 }
