@@ -4,7 +4,6 @@ import {Conteiner} from './styles';
 
 type IContentProps = {
   children: React.ReactNode;
-  pt?: number;
   pb?: number;
   pl?: number;
   pr?: number;
@@ -20,14 +19,13 @@ type IContentProps = {
 export default function Content({
   space,
   align,
-  pt,
   pb,
   pl,
   pr,
   children,
 }: IContentProps) {
   return (
-    <Conteiner space={space} align={align} pt={pt} pb={pb} pl={pl} pr={pr}>
+    <Conteiner space={space} align={align} pb={pb} pl={pl} pr={pr}>
       {children}
     </Conteiner>
   );
