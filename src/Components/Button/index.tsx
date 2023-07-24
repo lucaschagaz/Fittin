@@ -1,26 +1,35 @@
 import React from 'react';
 import {ActivityIndicator, TouchableOpacityProps} from 'react-native';
 import {Container} from './styles';
+import Title from '../Title';
 
 export interface IButtonProps extends TouchableOpacityProps {
+  height?: 'small' | 'large';
   width?: number;
-  height?: number;
-  bg?: string;
   isLoading?: boolean;
-  children: React.ReactNode;
+  variant?: 'primary' | 'secondary';
+  title: string;
+  // children: React.ReactNode;
 }
 
 export default function Button({
   width,
-  height,
-  bg,
+  height = 'large',
+  variant = 'primary',
   children,
+  title,
   isLoading,
   ...rest
 }: IButtonProps) {
+  const textColor = variant == 'primary' ? 'TEXT' : 'BLACK';
+
   return (
-    <Container width={width} height={height} bg={bg} {...rest}>
-      {isLoading ? <ActivityIndicator size={25} color="#FFF" /> : children}
+    <Container width={width} height={height} variant={variant} {...rest}>
+      {isLoading ? (
+        <ActivityIndicator size={25} color="#FFF" />
+      ) : (
+        <Title color={textColor}>{title}</Title>
+      )}
     </Container>
   );
 }
