@@ -16,7 +16,7 @@ type IConteinerProps = {
 
 export const Conteiner = styled.View<IConteinerProps>`
   flex: 1;
-  /* padding-top: ${({pt}) => (pt ? pt : 20)}px; */
+  padding-top: ${({pt}) => (pt ? pt : 10)}px;
   padding-bottom: ${({pb}) => (pb ? pb : 20)}px;
   padding-left: ${({pl}) => (pl ? pl : 10)}px;
   padding-right: ${({pr}) => (pr ? pr : 10)}px;
