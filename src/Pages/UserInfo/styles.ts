@@ -1,13 +1,13 @@
 import styled from 'styled-components/native';
 
-export const Conteiner = styled.View`
+export const Container = styled.View`
   flex: 1;
+  width: 100%;
   align-items: center;
   justify-content: center;
 `;
 
 export const ContentContainer = styled.View`
-  /* height: 50%; */
   width: 90%;
   align-items: center;
   justify-content: center;
@@ -61,4 +61,14 @@ export const ButtomWrapper = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+`;
+
+export const SearchFoodInput = styled.TextInput`
+  width: 100%;
+  padding: 0px 10px;
+  height: 50px;
+  border-radius: 30px;
+  background-color: ${({theme}) => theme.COLORS.GRAY_100};
+  margin-top: 20px;
+  font-size: 20px;
 `;

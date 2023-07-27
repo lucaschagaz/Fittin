@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Button, Content, Header, Title} from '../../../Components';
 import {
   ButtomWrapper,
-  Conteiner,
+  Container,
   ContentContainer,
   Pin,
   PinBox,
@@ -36,7 +36,7 @@ export default function MeasurementsHeight() {
   const renderPin = (data: number) => {
     if (data % 5 === 0) {
       return (
-        <PinBox onPress={() => setHeight(data)}>
+        <PinBox key={data} onPress={() => setHeight(data)}>
           <Pin
             style={{
               height: height == data ? 100 : 60,
@@ -47,7 +47,7 @@ export default function MeasurementsHeight() {
       );
     } else {
       return (
-        <PinBox onPress={() => setHeight(data)}>
+        <PinBox key={data} onPress={() => setHeight(data)}>
           <Pin
             style={{
               height: height == data ? 100 : 30,
@@ -97,7 +97,7 @@ export default function MeasurementsHeight() {
   return (
     <Content>
       <Header>
-        <Title size={24} weight="bold">
+        <Title size={26} weight="bold">
           Me conte mais sobre você
         </Title>
         <Title weight="bold" color="GRAY">
@@ -107,7 +107,7 @@ export default function MeasurementsHeight() {
       <Title size={28} weight="bold">
         Informe sua Altura:
       </Title>
-      <Conteiner>
+      <Container>
         <Title size={35}>{handleMeasuremants()}</Title>
         <ContentContainer>
           <ScrollView
@@ -116,11 +116,11 @@ export default function MeasurementsHeight() {
             contentContainerStyle={{paddingHorizontal: 165}}
             snapToInterval={20}
             scrollEventThrottle={8}
-            onMomentumScrollEnd={handleScroll}>
+            onScroll={handleScroll}>
             {numb?.map(number => renderPin(number))}
           </ScrollView>
         </ContentContainer>
-      </Conteiner>
+      </Container>
       <ButtomWrapper>
         <Button
           title="Passo anterior"

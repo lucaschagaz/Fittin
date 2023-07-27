@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Button, Content, Header, Title} from '../../../Components';
 import {
-  Conteiner,
+  Container,
   PinBox,
   Pin,
   MeasurementsValue,
@@ -39,7 +39,7 @@ export default function MeasurementsWeight() {
   const renderPin = (data: number) => {
     if (data % 5 === 0) {
       return (
-        <PinBox onPress={() => setweight(data)}>
+        <PinBox key={data} onPress={() => setweight(data)}>
           <Pin
             style={{
               height: weight == data ? 100 : 60,
@@ -50,7 +50,7 @@ export default function MeasurementsWeight() {
       );
     } else {
       return (
-        <PinBox onPress={() => setweight(data)}>
+        <PinBox key={data} onPress={() => setweight(data)}>
           <Pin
             style={{
               height: weight == data ? 100 : 30,
@@ -73,7 +73,7 @@ export default function MeasurementsWeight() {
   return (
     <Content>
       <Header>
-        <Title size={24} weight="bold">
+        <Title size={26} weight="bold">
           Me conte mais sobre você
         </Title>
         <Title weight="bold" color="GRAY">
@@ -83,7 +83,7 @@ export default function MeasurementsWeight() {
       <Title size={28} weight="bold">
         Informe seu Peso?
       </Title>
-      <Conteiner>
+      <Container>
         <MeasurementsValue>
           <Title size={40}>{weight}</Title>
           <Title mb={5} ml={2}>
@@ -97,11 +97,11 @@ export default function MeasurementsWeight() {
             contentContainerStyle={{paddingHorizontal: 165}}
             snapToInterval={20}
             scrollEventThrottle={8}
-            onMomentumScrollEnd={handleScroll}>
+            onScroll={handleScroll}>
             {numb?.map(number => renderPin(number))}
           </ScrollView>
         </ContentContainer>
-      </Conteiner>
+      </Container>
       <ButtomWrapper>
         <Button
           title="Passo anterior"

@@ -12,7 +12,7 @@ export default function ChooseSex() {
   return (
     <Content>
       <Header>
-        <Title size={24} weight="bold">
+        <Title size={26} weight="bold">
           Preciso de algumas informações!
         </Title>
         <Title weight="bold" color="GRAY">

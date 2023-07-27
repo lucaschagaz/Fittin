@@ -2,7 +2,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
 
 import {Button, Content, Header, Title} from '../../../Components';
-import {AgeBox, ButtomWrapper, Conteiner, ContentContainer} from '../styles';
+import {AgeBox, ButtomWrapper, Container, ContentContainer} from '../styles';
 import {
   ScrollView,
   NativeSyntheticEvent,
@@ -44,7 +44,7 @@ export default function Age() {
   return (
     <Content>
       <Header>
-        <Title size={24} weight="bold">
+        <Title size={26} weight="bold">
           Me conte mais sobre você
         </Title>
         <Title weight="bold" color="GRAY">
@@ -54,7 +54,7 @@ export default function Age() {
       <Title size={28} weight="bold" mt={30}>
         Informe sua Idade:
       </Title>
-      <Conteiner>
+      <Container>
         <ContentContainer style={{height: '90%'}}>
           <ScrollView
             contentContainerStyle={{
@@ -65,9 +65,9 @@ export default function Age() {
             showsVerticalScrollIndicator={false}
             ref={scrollViewRef}
             scrollEventThrottle={2}
-            onMomentumScrollEnd={handleScroll}>
+            onScroll={handleScroll}>
             {numb?.map(number => (
-              <AgeBox onPress={() => scrollTo(number)}>
+              <AgeBox key={number} onPress={() => scrollTo(number)}>
                 <Text
                   style={{
                     fontSize: 30,
@@ -85,7 +85,7 @@ export default function Age() {
             ))}
           </ScrollView>
         </ContentContainer>
-      </Conteiner>
+      </Container>
       <ButtomWrapper>
         <Button
           title="Passo anterior"
@@ -96,7 +96,7 @@ export default function Age() {
         <Button
           title="Proximo passo"
           width={40}
-          onPress={() => navigation.navigate('Measurements2')}
+          onPress={() => navigation.navigate('Goal')}
         />
       </ButtomWrapper>
     </Content>
