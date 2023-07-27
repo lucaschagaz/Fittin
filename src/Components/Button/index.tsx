@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {ActivityIndicator, TouchableOpacityProps} from 'react-native';
 import {Container} from './styles';
 import Title from '../Title';
@@ -9,7 +9,6 @@ export interface IButtonProps extends TouchableOpacityProps {
   isLoading?: boolean;
   variant?: 'primary' | 'secondary';
   title: string;
-  // children: React.ReactNode;
 }
 
 export default function Button({

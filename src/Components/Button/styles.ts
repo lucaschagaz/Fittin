@@ -15,7 +15,7 @@ export const Container = styled.TouchableOpacity<IButtonProps>`
   border-radius: 25px;
   align-items: center;
   justify-content: center;
-  border-width: ${({variant}) => (variant == 'secondary' ? 2 : 0)}px;
+  border-width: ${({variant}) => (variant !== 'primary' ? 2 : 0)}px;
   border-color: ${({theme, variant}) =>
     variant == 'secondary' && theme.COLORS.GRAY};
 `;
