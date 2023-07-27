@@ -8,6 +8,9 @@ import ChooseSex from './UserInfo/ChooseSex';
 import MeasurementsHeight from './UserInfo/MeasurementsHeight';
 import MeasurementsWeight from './UserInfo/MeasurementsWeight';
 import Age from './UserInfo/Age';
+import Goal from './UserInfo/Goal';
+import Diet from './UserInfo/Diet';
+import Foods from './UserInfo/Foods';
 
 export {
   Login,
@@ -18,6 +21,9 @@ export {
   Register,
   ChooseSex,
   MeasurementsHeight,
-  Age,
   MeasurementsWeight,
+  Age,
+  Diet,
+  Goal,
+  Foods,
 };

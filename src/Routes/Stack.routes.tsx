@@ -11,6 +11,9 @@ import {
   Age,
   MeasurementsWeight,
   MeasurementsHeight,
+  Goal,
+  Diet,
+  Foods,
 } from '../Pages';
 import Home from '../Pages/Home';
 const Stack = createNativeStackNavigator();
@@ -32,6 +35,9 @@ export default function Stackroutes() {
       <Screen name="MeasurementsHeight" component={MeasurementsHeight} />
       <Screen name="MeasurementsWeight" component={MeasurementsWeight} />
       <Screen name="Age" component={Age} />
+      <Screen name="Goal" component={Goal} />
+      <Screen name="Diet" component={Diet} />
+      <Screen name="Foods" component={Foods} />
     </Navigator>
   );
 }
