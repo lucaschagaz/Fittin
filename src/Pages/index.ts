@@ -4,13 +4,13 @@ import Testing from './Testin';
 import ForgotPassWord from './ForgotPassword';
 import Register from './Register';
 import OTPCode from './OTPCode';
-import ChooseSex from './UserInfo/ChooseSex';
-import MeasurementsHeight from './UserInfo/MeasurementsHeight';
-import MeasurementsWeight from './UserInfo/MeasurementsWeight';
-import Age from './UserInfo/Age';
-import Goal from './UserInfo/Goal';
-import Diet from './UserInfo/Diet';
-import Foods from './UserInfo/Foods';
+import ChooseSex from './UserData/ChooseSex';
+import MeasurementsHeight from './UserData/MeasurementsHeight';
+import MeasurementsWeight from './UserData/MeasurementsWeight';
+import Age from './UserData/Age';
+import Goal from './UserData/Goal';
+import Diet from './UserData/Diet';
+import Foods from './UserData/Foods';
 
 export {
   Login,
