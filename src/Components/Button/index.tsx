@@ -9,6 +9,7 @@ export interface IButtonProps extends TouchableOpacityProps {
   isLoading?: boolean;
   variant?: 'primary' | 'secondary';
   title: string;
+  titleWeight?: string;
 }
 
 export default function Button({
@@ -17,6 +18,7 @@ export default function Button({
   variant = 'primary',
   children,
   title,
+  titleWeight,
   isLoading,
   ...rest
 }: IButtonProps) {
@@ -27,7 +29,9 @@ export default function Button({
       {isLoading ? (
         <ActivityIndicator size={25} color="#FFF" />
       ) : (
-        <Title color={textColor}>{title}</Title>
+        <Title weight={titleWeight} color={textColor}>
+          {title}
+        </Title>
       )}
     </Container>
   );
