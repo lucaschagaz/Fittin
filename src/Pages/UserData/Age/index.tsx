@@ -26,7 +26,7 @@ export default function Age() {
   const handleScroll = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
     const yy = e.nativeEvent.contentOffset.y;
     console.log(yy);
-    const select = Math.ceil(yy / 70) + 12;
+    const select = Math.ceil(yy / 85) + 12;
     console.log(select);
     setMeasurements(select);
   };
@@ -45,30 +45,31 @@ export default function Age() {
         Informe sua Idade:
       </Title>
       <Container>
-        <ContentContainer style={{height: '90%'}}>
+        <ContentContainer>
           <ScrollView
             contentContainerStyle={{
               paddingHorizontal: 10,
-              paddingVertical: 70 * 2,
+              paddingVertical: 65 * 2,
             }}
-            snapToInterval={70}
+            snapToInterval={85}
             showsVerticalScrollIndicator={false}
             ref={scrollViewRef}
-            scrollEventThrottle={2}
+            scrollEventThrottle={16}
             onScroll={handleScroll}>
             {value?.map(number => (
               <AgeBox
                 activeOpacity={1}
                 key={number}
-                onPress={() => scrollTo(number)}>
+                // onPress={() => scrollTo(number)}
+              >
                 <Text
                   style={{
                     fontSize:
                       number == measurements + 1 || number == measurements - 1
-                        ? 30
+                        ? 28
                         : number == measurements
                         ? 30
-                        : 18,
+                        : 25,
                     opacity:
                       number == measurements + 1 || number == measurements - 1
                         ? 0.7

@@ -9,8 +9,9 @@ export const Container = styled.View`
 
 export const ContentContainer = styled.View`
   width: 90%;
+  /* background-color: aquamarine; */
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
 `;
 
 export const Box = styled.View`
@@ -52,7 +53,7 @@ export const MeasurementsValue = styled.View`
 export const AgeBox = styled.TouchableOpacity`
   justify-content: center;
   align-items: center;
-  height: 60px;
+  height: 75px;
   width: 100px;
   margin: 5px 0px;
 `;

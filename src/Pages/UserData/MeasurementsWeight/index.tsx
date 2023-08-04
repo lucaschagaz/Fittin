@@ -57,7 +57,7 @@ export default function MeasurementsWeight() {
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={{paddingHorizontal: 20 * 8}}
             snapToInterval={20}
-            scrollEventThrottle={8}
+            scrollEventThrottle={16}
             onScroll={handleScroll}>
             {value?.map(number => renderPin(number))}
           </ScrollView>
