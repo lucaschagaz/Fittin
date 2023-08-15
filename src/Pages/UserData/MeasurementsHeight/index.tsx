@@ -27,11 +27,11 @@ export default function MeasurementsHeight() {
 
   const handleMeasuremants = () => {
     if (measurements == 100) {
-      return 1 + ' Metro';
+      return 1 + ' metro';
     } else if (measurements == 200) {
-      return 2 + ' Metros';
+      return 2 + ' metros';
     } else if (measurements == 300) {
-      return 3 + ' Metros';
+      return 3 + ' metros';
     } else {
       const digitosSeparados = measurements.toString().split('').map(Number);
       if (digitosSeparados[0] == 1) {
@@ -57,23 +57,22 @@ export default function MeasurementsHeight() {
   return (
     <Content>
       <Header>
-        <Title size={26} weight="bold">
-          Me conte mais sobre você
+        <Title size={28} mb={5} weight="bold">
+          Informe sua Altura:
         </Title>
         <Title weight="bold" color="GRAY">
-          Dados para criação do seu plano personalizado
+          Poderá mudar essa infromação posteriormente
         </Title>
       </Header>
-      <Title size={28} weight="bold">
-        Informe sua Altura:
-      </Title>
       <Container>
-        <Title size={35}>{handleMeasuremants()}</Title>
+        <Title ml={20} size={30}>
+          {handleMeasuremants()}
+        </Title>
         <ContentContainer>
           <ScrollView
             horizontal
             showsHorizontalScrollIndicator={false}
-            contentContainerStyle={{paddingHorizontal: 165}}
+            contentContainerStyle={{paddingHorizontal: 20 * 8}}
             snapToInterval={20}
             scrollEventThrottle={16}
             onScroll={handleScroll}>

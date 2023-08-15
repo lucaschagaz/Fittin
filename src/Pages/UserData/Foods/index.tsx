@@ -1,10 +1,13 @@
 import React, {useState} from 'react';
 import {Button, Content, Header, Title} from '../../../Components';
-import {ButtomWrapper, Container, SearchFoodInput} from '../styles';
-import {useNavigation} from '@react-navigation/native';
+import {ButtomWrapper, FoodsWrapper, FoodsInput} from '../styles';
 import {foods} from '../../../Utils/Mocks/foods';
+import {useNavigation} from '@react-navigation/native';
+import {Text, TouchableOpacity} from 'react-native';
 
 export default function Foods() {
+  /* LIDAR COM TECLADO NESSA PARTE! USAR UMA LIB */
+
   const navigation = useNavigation();
 
   const [selectdsFoods, setSelectdFoods] = useState<string[]>([]);
@@ -20,7 +23,7 @@ export default function Foods() {
   };
 
   return (
-    <Content>
+    <Content space="space-between">
       <Header>
         <Title size={26} weight="bold" mb={5}>
           Alimentos que não gosta.
@@ -29,32 +32,34 @@ export default function Foods() {
           Selecione os alimentos que não gostaria de ter em seu plano alimentar
         </Title>
       </Header>
-      <SearchFoodInput placeholder="Pesquise um alimento" />
-      <Container
-        style={{
-          marginTop: 20,
-          flexWrap: 'wrap',
-          flexDirection: 'row',
-        }}>
+      {/* <FoodsInput
+        placeholder="outro alimento que não consuma?"
+        placeholderTextColor="#999"
+      /> */}
+      <FoodsWrapper>
         {foods.map(food => (
-          <Button
-            key={food}
-            variant="secondary"
-            width={25}
-            style={{
-              borderColor: selectdsFoods.includes(food) ? '#001eff' : '#999',
-              marginBottom: 10,
-              marginHorizontal: 10,
-              backgroundColor: selectdsFoods.includes(food)
-                ? '#001eff15'
-                : 'transparent',
-            }}
-            title={food}
-            titleWeight={selectdsFoods.includes(food) ? 'bold' : 'normal'}
+          <TouchableOpacity
             onPress={() => handleFood(food)}
-          />
+            style={{
+              borderWidth: 2,
+              borderColor: selectdsFoods.includes(food) ? '#001eff' : '#999',
+              backgroundColor: selectdsFoods.includes(food)
+                ? '#283ee114'
+                : 'transparent',
+              paddingVertical: 10,
+              paddingHorizontal: 20,
+              borderRadius: 30,
+            }}>
+            <Text
+              style={{
+                fontSize: 15,
+                color: selectdsFoods.includes(food) ? '#001eff' : '#999',
+              }}>
+              {food}
+            </Text>
+          </TouchableOpacity>
         ))}
-      </Container>
+      </FoodsWrapper>
       <ButtomWrapper>
         <Button
           title="Passo anterior"
@@ -64,8 +69,13 @@ export default function Foods() {
         />
         <Button
           title="Proximo passo"
+          disabled={selectdsFoods.length == 0 ? true : false}
           width={40}
-          onPress={() => navigation.navigate('Age')}
+          onPress={() => navigation.navigate('Home')}
+          style={{
+            borderColor: selectdsFoods.length == 0 ? '#99999971' : '#999',
+          }}
+          variant={selectdsFoods.length == 0 ? 'secondary' : 'primary'}
         />
       </ButtomWrapper>
     </Content>

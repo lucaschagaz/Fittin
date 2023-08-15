@@ -34,20 +34,17 @@ export default function MeasurementsWeight() {
   return (
     <Content>
       <Header>
-        <Title size={26} weight="bold">
-          Me conte mais sobre você
+        <Title size={28} mb={5} weight="bold">
+          Informe seu Peso?
         </Title>
         <Title weight="bold" color="GRAY">
-          Dados para criação do seu plano personalizado
+          Poderá mudar essa infromação posteriormente
         </Title>
       </Header>
-      <Title size={28} weight="bold">
-        Informe seu Peso?
-      </Title>
       <Container>
         <MeasurementsValue>
-          <Title size={40}>{measurements}</Title>
-          <Title mb={5} ml={2}>
+          <Title size={45}>{measurements}</Title>
+          <Title mb={10} ml={2}>
             kg
           </Title>
         </MeasurementsValue>

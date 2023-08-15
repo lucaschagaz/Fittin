@@ -1,8 +1,9 @@
 import React, {useEffect, useRef} from 'react';
+import {View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
 import {Button, Content, Header, Title} from '../../../Components';
-import {AgeBox, ButtomWrapper, Container, ContentContainer} from '../styles';
+import {AgeBox, ButtomWrapper, Container} from '../styles';
 import {
   ScrollView,
   NativeSyntheticEvent,
@@ -34,22 +35,18 @@ export default function Age() {
   return (
     <Content>
       <Header>
-        <Title size={26} weight="bold">
-          Me conte mais sobre você
+        <Title size={28} weight="bold">
+          Informe sua Idade:
         </Title>
         <Title weight="bold" color="GRAY">
           Dados para criação do seu plano personalizado
         </Title>
       </Header>
-      <Title size={28} weight="bold" mt={30}>
-        Informe sua Idade:
-      </Title>
       <Container>
-        <ContentContainer>
+        <View style={{height: '80%'}}>
           <ScrollView
             contentContainerStyle={{
-              paddingHorizontal: 10,
-              paddingVertical: 65 * 2,
+              paddingVertical: 70 * 2,
             }}
             snapToInterval={85}
             showsVerticalScrollIndicator={false}
@@ -57,11 +54,7 @@ export default function Age() {
             scrollEventThrottle={16}
             onScroll={handleScroll}>
             {value?.map(number => (
-              <AgeBox
-                activeOpacity={1}
-                key={number}
-                // onPress={() => scrollTo(number)}
-              >
+              <AgeBox activeOpacity={1} key={number}>
                 <Text
                   style={{
                     fontSize:
@@ -89,7 +82,7 @@ export default function Age() {
               </AgeBox>
             ))}
           </ScrollView>
-        </ContentContainer>
+        </View>
       </Container>
       <ButtomWrapper>
         <Button

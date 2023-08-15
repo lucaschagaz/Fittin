@@ -7,11 +7,18 @@ export const Container = styled.View`
   justify-content: center;
 `;
 
+export const FoodsWrapper = styled.View`
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: center;
+  flex-direction: row;
+  gap: 10px;
+`;
+
 export const ContentContainer = styled.View`
   width: 90%;
-  /* background-color: aquamarine; */
-  align-items: center;
-  /* justify-content: center; */
+  /* align-items: ; */
 `;
 
 export const Box = styled.View`
@@ -46,7 +53,6 @@ export const Pin = styled.View`
 `;
 export const MeasurementsValue = styled.View`
   flex-direction: row;
-  justify-content: center;
   align-items: flex-end;
 `;
 
@@ -54,7 +60,7 @@ export const AgeBox = styled.TouchableOpacity`
   justify-content: center;
   align-items: center;
   height: 75px;
-  width: 100px;
+  width: 120px;
   margin: 5px 0px;
 `;
 export const ButtomWrapper = styled.View`
@@ -64,12 +70,10 @@ export const ButtomWrapper = styled.View`
   justify-content: space-around;
 `;
 
-export const SearchFoodInput = styled.TextInput`
+export const FoodsInput = styled.TextInput`
   width: 100%;
-  padding: 0px 20px;
-  height: 50px;
-  border-radius: 30px;
-  background-color: ${({theme}) => theme.COLORS.GRAY_100};
-  margin-top: 20px;
-  font-size: 20px;
+  height: 60px;
+  border-radius: 60px;
+  padding: 10px;
+  background-color: #ddd;
 `;
