@@ -22,14 +22,16 @@ export default function Button({
   isLoading,
   ...rest
 }: IButtonProps) {
-  const textColor = variant == 'primary' ? 'TEXT' : 'BLACK';
+  const textColor = variant == 'primary' ? 'TEXT' : 'GRAY';
 
   return (
     <Container width={width} height={height} variant={variant} {...rest}>
       {isLoading ? (
         <ActivityIndicator size={25} color="#FFF" />
       ) : (
-        <Title weight={titleWeight} color={textColor}>
+        <Title
+          weight={titleWeight}
+          color={titleWeight == 'bold' ? 'BLACK' : textColor}>
           {title}
         </Title>
       )}
