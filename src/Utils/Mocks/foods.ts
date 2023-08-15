@@ -16,6 +16,10 @@ const foods = [
   'Abacate',
   'Nozes',
   'Chia',
+  'figado',
+  'queijo',
+  'salsicha',
+  'frango',
 ];
 
 export {foods};
