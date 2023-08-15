@@ -4,7 +4,6 @@ import {
   Text,
   Dimensions,
   FlatList,
-  Animated,
   StyleSheet,
 } from 'react-native';
 import React, {useEffect, useRef} from 'react';
