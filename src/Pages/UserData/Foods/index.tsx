@@ -23,22 +23,19 @@ export default function Foods() {
   };
 
   return (
-    <Content space="space-between">
+    <Content>
       <Header>
         <Title size={26} weight="bold" mb={5}>
           Alimentos que não gosta.
         </Title>
         <Title weight="bold" color="GRAY">
-          Selecione os alimentos que não gostaria de ter em seu plano alimentar
+          Quais alimentos não gostaria de ter em seu plano alimentar
         </Title>
       </Header>
-      {/* <FoodsInput
-        placeholder="outro alimento que não consuma?"
-        placeholderTextColor="#999"
-      /> */}
       <FoodsWrapper>
         {foods.map(food => (
           <TouchableOpacity
+            key={food}
             onPress={() => handleFood(food)}
             style={{
               borderWidth: 2,
@@ -63,15 +60,19 @@ export default function Foods() {
       <ButtomWrapper>
         <Button
           title="Passo anterior"
-          width={40}
+          width={45}
           variant="secondary"
-          // onPress={() => navigation.navigate('Measurements')}
+          onPress={() =>
+            navigation.canGoBack()
+              ? navigation.goBack()
+              : navigation.navigate('Diet')
+          }
         />
         <Button
-          title="Proximo passo"
+          title="Finalizar"
           disabled={selectdsFoods.length == 0 ? true : false}
-          width={40}
-          onPress={() => navigation.navigate('Home')}
+          width={45}
+          onPress={() => navigation.navigate('tabBar')}
           style={{
             borderColor: selectdsFoods.length == 0 ? '#99999971' : '#999',
           }}

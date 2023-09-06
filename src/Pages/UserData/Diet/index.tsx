@@ -16,12 +16,13 @@ export default function Goal() {
           Seu Objetivo no App é?
         </Title>
         <Title weight="bold" color="GRAY">
-          Isso nós ajuda-rá a criar um plano personalizado
+          Dados necessarias para criação do seu plano personalizado
         </Title>
       </Header>
       <Container>
         {Diets.map(diet => (
           <Button
+            key={diet}
             width={90}
             style={{
               borderColor: borderColor === diet ? '#001eff' : 'transparent',
@@ -37,13 +38,17 @@ export default function Goal() {
       <ButtomWrapper>
         <Button
           title="Passo anterior"
-          width={40}
+          width={45}
           variant="secondary"
-          // onPress={() => navigation.navigate('Measurements')}
+          onPress={() =>
+            navigation.canGoBack()
+              ? navigation.goBack()
+              : navigation.navigate('Goal')
+          }
         />
         <Button
           title="Proximo passo"
-          width={40}
+          width={45}
           onPress={() => navigation.navigate('Foods')}
         />
       </ButtomWrapper>

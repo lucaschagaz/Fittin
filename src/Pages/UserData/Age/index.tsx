@@ -27,7 +27,7 @@ export default function Age() {
   const handleScroll = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
     const yy = e.nativeEvent.contentOffset.y;
     console.log(yy);
-    const select = Math.ceil(yy / 85) + 12;
+    const select = Math.round(yy / 80) + 12;
     console.log(select);
     setMeasurements(select);
   };
@@ -39,16 +39,16 @@ export default function Age() {
           Informe sua Idade:
         </Title>
         <Title weight="bold" color="GRAY">
-          Dados para criação do seu plano personalizado
+          Dados necessarias para criação do seu plano personalizado
         </Title>
       </Header>
       <Container>
         <View style={{height: '80%'}}>
           <ScrollView
             contentContainerStyle={{
-              paddingVertical: 70 * 2,
+              paddingVertical: 80 * 2,
             }}
-            snapToInterval={85}
+            snapToInterval={80}
             showsVerticalScrollIndicator={false}
             ref={scrollViewRef}
             scrollEventThrottle={16}
@@ -87,14 +87,18 @@ export default function Age() {
       <ButtomWrapper>
         <Button
           title="Passo anterior"
-          width={40}
+          width={45}
           variant="secondary"
-          onPress={() => navigation.navigate('Measurements2')}
+          onPress={() =>
+            navigation.canGoBack()
+              ? navigation.goBack()
+              : navigation.navigate('ChooseSex')
+          }
         />
         <Button
           title="Proximo passo"
-          width={40}
-          onPress={() => navigation.navigate('Goal')}
+          width={45}
+          onPress={() => navigation.navigate('MeasurementsWeight')}
         />
       </ButtomWrapper>
     </Content>

@@ -3,6 +3,7 @@ import {Button, Content, Header, Title} from '../../../Components';
 import {ButtonContainer, ButtonImage, Container, Image} from './styles';
 import {View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+import Avatar from '../../../Components/Avatar';
 
 export default function ChooseSex() {
   const [sex, setSex] = useState('');
@@ -13,43 +14,39 @@ export default function ChooseSex() {
     <Content>
       <Header>
         <Title size={26} weight="bold">
-          Preciso de algumas informações!
+          Qual o seu sexo?
         </Title>
         <Title weight="bold" color="GRAY">
-          informações necessarias para criação do seu plano personalizado
+          Dados necessarias para criação do seu plano personalizado
         </Title>
       </Header>
-      <Container>
-        <Title weight="bold" mb={20} size={30}>
-          Você é:
+      <ButtonContainer>
+        <View>
+          <Avatar
+            borderColor={sex == 'men' ? 'PRIMARY' : 'GRAY'}
+            onPress={() => setSex('men')}
+          />
+          <Title>Homen</Title>
+        </View>
+        <Title weight="bold" size={25}>
+          ou
         </Title>
-        <ButtonContainer>
-          <View>
-            <ButtonImage
-              style={{borderColor: sex == 'men' ? '#3447d4' : '#9999'}}
-              onPress={() => setSex('men')}>
-              <Image source={require('../../../Assets/man.png')} />
-            </ButtonImage>
-            <Title>Homen</Title>
-          </View>
-          <Title weight="bold" size={25}>
-            ou
-          </Title>
-          <View>
-            <ButtonImage
-              style={{borderColor: sex == 'woman' ? '#3447d4' : '#9999'}}
-              onPress={() => setSex('woman')}>
-              <Image source={require('../../../Assets/woman.png')} />
-            </ButtonImage>
-            <Title>Mulher</Title>
-          </View>
-        </ButtonContainer>
-      </Container>
+        <View>
+          <Avatar
+            borderColor={sex == 'woman' ? 'PRIMARY' : 'GRAY'}
+            sex="woman"
+            onPress={() => setSex('woman')}
+          />
+          <Title>Mulher</Title>
+        </View>
+      </ButtonContainer>
       <Button
         width={50}
+        disabled={sex == '' ? true : false}
+        variant={sex == '' ? 'secondary' : 'primary'}
         title="Proximo passo"
         style={{alignSelf: 'flex-end'}}
-        onPress={() => navigation.navigate('Measurements')}
+        onPress={() => navigation.navigate('Age')}
       />
     </Content>
   );

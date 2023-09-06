@@ -21,23 +21,23 @@ export default function MeasurementsHeight() {
 
   const handleScroll = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
     const xx = e.nativeEvent.contentOffset.x;
-    const select = Math.ceil(xx / 20) + 100;
+    const select = Math.ceil(xx / 16) + 100;
     setMeasurements(select);
   };
 
   const handleMeasuremants = () => {
     if (measurements == 100) {
-      return 1 + ' metro';
+      return 1 + 'm';
     } else if (measurements == 200) {
-      return 2 + ' metros';
+      return 2 + 'm';
     } else if (measurements == 300) {
-      return 3 + ' metros';
+      return 3 + 'm';
     } else {
       const digitosSeparados = measurements.toString().split('').map(Number);
       if (digitosSeparados[0] == 1) {
         return (
           digitosSeparados[0] +
-          'm e ' +
+          'm ' +
           digitosSeparados[1] +
           digitosSeparados[2] +
           'cm'
@@ -45,7 +45,7 @@ export default function MeasurementsHeight() {
       } else {
         return (
           digitosSeparados[0] +
-          'm e ' +
+          'm ' +
           digitosSeparados[1] +
           digitosSeparados[2] +
           'cm'
@@ -61,19 +61,19 @@ export default function MeasurementsHeight() {
           Informe sua Altura:
         </Title>
         <Title weight="bold" color="GRAY">
-          Poderá mudar essa infromação posteriormente
+          Informção poderá ser alterada posteriormente
         </Title>
       </Header>
       <Container>
         <Title ml={20} size={30}>
-          {handleMeasuremants()}
+          {measurements} cm
         </Title>
         <ContentContainer>
           <ScrollView
             horizontal
             showsHorizontalScrollIndicator={false}
-            contentContainerStyle={{paddingHorizontal: 20 * 8}}
-            snapToInterval={20}
+            contentContainerStyle={{paddingHorizontal: 16 * 10.5}}
+            snapToInterval={16}
             scrollEventThrottle={16}
             onScroll={handleScroll}>
             {value?.map(number => renderPin(number))}
@@ -83,14 +83,18 @@ export default function MeasurementsHeight() {
       <ButtomWrapper>
         <Button
           title="Passo anterior"
-          width={40}
+          width={45}
           variant="secondary"
-          // onPress={() => navigation.navigate('Measurements')}
+          onPress={() =>
+            navigation.canGoBack()
+              ? navigation.goBack()
+              : navigation.navigate('MeasurementsWeight')
+          }
         />
         <Button
           title="Proximo passo"
-          width={40}
-          onPress={() => navigation.navigate('Age')}
+          width={45}
+          onPress={() => navigation.navigate('Goal')}
         />
       </ButtomWrapper>
     </Content>

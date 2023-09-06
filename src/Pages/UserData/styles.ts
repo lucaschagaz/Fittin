@@ -9,11 +9,13 @@ export const Container = styled.View`
 
 export const FoodsWrapper = styled.View`
   width: 100%;
+  flex: 1;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-content: center;
+  justify-content: center;
+  /* align-content: center; */
   flex-direction: row;
-  gap: 10px;
+  margin-top: 60px;
+  gap: 12px;
 `;
 
 export const ContentContainer = styled.View`
@@ -41,14 +43,14 @@ export const Change = styled.TouchableOpacity`
 export const PinBox = styled.TouchableOpacity`
   width: 10px;
   height: 160px;
-  margin: 0px 5px;
+  margin: 0px 3px;
   align-items: center;
   justify-content: center;
 `;
 
 export const Pin = styled.View`
-  width: 3.5px;
-  background-color: '#001eff';
+  width: 3px;
+  /* background-color: '#001eff'; */
   border-radius: 10px;
 `;
 export const MeasurementsValue = styled.View`
@@ -59,7 +61,7 @@ export const MeasurementsValue = styled.View`
 export const AgeBox = styled.TouchableOpacity`
   justify-content: center;
   align-items: center;
-  height: 75px;
+  height: 70px;
   width: 120px;
   margin: 5px 0px;
 `;
@@ -75,5 +77,6 @@ export const FoodsInput = styled.TextInput`
   height: 60px;
   border-radius: 60px;
   padding: 10px;
+  margin: 20px 0px 30px 0px;
   background-color: #ddd;
 `;

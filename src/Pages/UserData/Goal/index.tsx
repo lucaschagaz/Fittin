@@ -6,8 +6,17 @@ import {useNavigation} from '@react-navigation/native';
 export default function Goal() {
   const navigation = useNavigation();
 
-  const [borderColor, setBorderColor] = useState('Dieta');
+  const [goal, setGoal] = useState<'Dieta e Treinos' | 'Dieta' | 'Treinos'>(
+    'Dieta',
+  );
 
+  const chooseGoal = () => {
+    if (goal == 'Treinos') {
+      navigation.navigate('tabBar');
+    } else {
+      navigation.navigate('Diet');
+    }
+  };
   return (
     <Content>
       <Header>
@@ -15,56 +24,59 @@ export default function Goal() {
           Seu Objetivo no App é?
         </Title>
         <Title weight="bold" color="GRAY">
-          Isso nós ajuda-rá a criar um plano personalizado
+          Dados necessarias para criação do seu plano personalizado
         </Title>
       </Header>
       <Container>
         <Button
           width={90}
           style={{
-            borderColor: borderColor === 'Dieta' ? '#001eff' : 'transparent',
+            borderColor: goal === 'Dieta' ? '#001eff' : 'transparent',
             marginBottom: 25,
           }}
-          titleWeight={borderColor == 'Dieta' ? 'bold' : 'normal'}
+          titleWeight={goal == 'Dieta' ? 'bold' : 'normal'}
           title="Dieta"
           variant="secondary"
-          onPress={() => setBorderColor('Dieta')}
+          onPress={() => setGoal('Dieta')}
         />
         <Button
           width={90}
           style={{
-            borderColor: borderColor === 'Treinos' ? '#001eff' : 'transparent',
+            borderColor: goal === 'Treinos' ? '#001eff' : 'transparent',
             marginBottom: 25,
           }}
-          titleWeight={borderColor == 'Treinos' ? 'bold' : 'normal'}
+          titleWeight={goal == 'Treinos' ? 'bold' : 'normal'}
           title="Treinos"
           variant="secondary"
-          onPress={() => setBorderColor('Treinos')}
+          onPress={() => setGoal('Treinos')}
         />
         <Button
           width={90}
           style={{
-            borderColor:
-              borderColor === 'Dieta e Treinos' ? '#001eff' : 'transparent',
+            borderColor: goal === 'Dieta e Treinos' ? '#001eff' : 'transparent',
             marginBottom: 25,
           }}
-          titleWeight={borderColor == 'Dieta e Treinos' ? 'bold' : 'normal'}
+          titleWeight={goal == 'Dieta e Treinos' ? 'bold' : 'normal'}
           title="Dieta e Treinos"
           variant="secondary"
-          onPress={() => setBorderColor('Dieta e Treinos')}
+          onPress={() => setGoal('Dieta e Treinos')}
         />
       </Container>
       <ButtomWrapper>
         <Button
           title="Passo anterior"
-          width={40}
+          width={45}
           variant="secondary"
-          // onPress={() => navigation.navigate('Measurements')}
+          onPress={() =>
+            navigation.canGoBack()
+              ? navigation.goBack()
+              : navigation.navigate('Age')
+          }
         />
         <Button
-          title="Proximo passo"
-          width={40}
-          onPress={() => navigation.navigate('Diet')}
+          title={goal == 'Treinos' ? 'Finzalizar' : 'Proximo Passo'}
+          width={45}
+          onPress={chooseGoal}
         />
       </ButtomWrapper>
     </Content>

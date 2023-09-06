@@ -11,8 +11,14 @@ import Age from './UserData/Age';
 import Goal from './UserData/Goal';
 import Diet from './UserData/Diet';
 import Foods from './UserData/Foods';
+import YourDeit from './YourDiet';
+import WorkOuts from './WorkOuts';
+import Profile from './Profile';
+import Insight from './Insight';
+import Home from './Home';
 
 export {
+  Home,
   Login,
   OnBoarding,
   Testing,
@@ -26,4 +32,8 @@ export {
   Diet,
   Goal,
   Foods,
+  YourDeit,
+  WorkOuts,
+  Profile,
+  Insight,
 };

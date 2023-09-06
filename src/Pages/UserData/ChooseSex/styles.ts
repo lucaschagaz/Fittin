@@ -8,6 +8,9 @@ export const Container = styled.View`
 export const ButtonContainer = styled.View`
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  width: 80%;
 `;
 
 export const Image = styled.Image`

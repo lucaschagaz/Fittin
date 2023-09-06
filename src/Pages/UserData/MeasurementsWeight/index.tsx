@@ -27,7 +27,7 @@ export default function MeasurementsWeight() {
 
   const handleScroll = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
     const xx = e.nativeEvent.contentOffset.x;
-    const select = Math.ceil(xx / 20) + 40;
+    const select = Math.ceil(xx / 16) + 40;
     setMeasurements(select);
   };
 
@@ -38,7 +38,7 @@ export default function MeasurementsWeight() {
           Informe seu Peso?
         </Title>
         <Title weight="bold" color="GRAY">
-          Poderá mudar essa infromação posteriormente
+          Informção poderá ser alterada posteriormente
         </Title>
       </Header>
       <Container>
@@ -52,8 +52,8 @@ export default function MeasurementsWeight() {
           <ScrollView
             horizontal
             showsHorizontalScrollIndicator={false}
-            contentContainerStyle={{paddingHorizontal: 20 * 8}}
-            snapToInterval={20}
+            contentContainerStyle={{paddingHorizontal: 16 * 10.5}}
+            snapToInterval={16}
             scrollEventThrottle={16}
             onScroll={handleScroll}>
             {value?.map(number => renderPin(number))}
@@ -63,13 +63,17 @@ export default function MeasurementsWeight() {
       <ButtomWrapper>
         <Button
           title="Passo anterior"
-          width={40}
+          width={45}
           variant="secondary"
-          // onPress={() => navigation.navigate('Measurements')}
+          onPress={() =>
+            navigation.canGoBack()
+              ? navigation.goBack()
+              : navigation.navigate('Age')
+          }
         />
         <Button
           title="Proximo passo"
-          width={40}
+          width={45}
           onPress={() => navigation.navigate('MeasurementsHeight')}
         />
       </ButtomWrapper>
