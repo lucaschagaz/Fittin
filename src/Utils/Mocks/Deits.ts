@@ -5,4 +5,5 @@ const Diets = [
   'Dieta Low Carb',
   'Dieta Vegana/Vegetariana',
 ];
+
 export {Diets};
