@@ -23,8 +23,8 @@ export default function useMeasurements(
         <PinBox key={data} onPress={() => setMeasurements(data)}>
           <Pin
             style={{
-              height: measurements == data ? 80 : 40,
-              backgroundColor: '#001eff',
+              height: measurements == data ? 85 : 45,
+              backgroundColor: measurements == data ? '#001eff' : '#999',
             }}
           />
         </PinBox>
@@ -34,8 +34,8 @@ export default function useMeasurements(
         <PinBox key={data} onPress={() => setMeasurements(data)}>
           <Pin
             style={{
-              height: measurements == data ? 80 : 25,
-              backgroundColor: '#001eff',
+              height: measurements == data ? 85 : 25,
+              backgroundColor: measurements == data ? '#001eff' : '#999',
             }}
           />
         </PinBox>
