@@ -9,11 +9,11 @@ interface IInputProps extends TextInputProps {
   iconType?: string;
 }
 
-export default function Input({label, iconType, ...rest}: IInputProps) {
+export const Input = ({label, iconType, ...rest}: IInputProps) => {
   return (
     <InputBox>
       <InputFild placeholder={label} {...rest} />
       {/* {iconType ? <Icon name={iconType} size={20} /> : null} */}
     </InputBox>
   );
-}
+};

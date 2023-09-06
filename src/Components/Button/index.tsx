@@ -12,7 +12,7 @@ export interface IButtonProps extends TouchableOpacityProps {
   titleWeight?: string;
 }
 
-export default function Button({
+export const Button = ({
   width,
   height = 'large',
   variant = 'primary',
@@ -21,8 +21,8 @@ export default function Button({
   titleWeight,
   isLoading,
   ...rest
-}: IButtonProps) {
-  const textColor = variant == 'primary' ? 'TEXT' : 'GRAY';
+}: IButtonProps) => {
+  const textColor = variant == 'primary' ? 'TEXT' : 'BLACK';
 
   return (
     <Container width={width} height={height} variant={variant} {...rest}>
@@ -37,4 +37,4 @@ export default function Button({
       )}
     </Container>
   );
-}
+};

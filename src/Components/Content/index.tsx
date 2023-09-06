@@ -16,17 +16,17 @@ type IContentProps = {
   align?: 'center' | 'flex-start' | 'flex-end';
 };
 
-export default function Content({
+export const Content = ({
   space,
   align,
   pb,
   pl,
   pr,
   children,
-}: IContentProps) {
+}: IContentProps) => {
   return (
     <Conteiner space={space} align={align} pb={pb} pl={pl} pr={pr}>
       {children}
     </Conteiner>
   );
-}
+};

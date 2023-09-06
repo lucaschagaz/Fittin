@@ -12,7 +12,7 @@ type ITextProps = {
   mb?: number;
 };
 
-export default function Title({
+export const Title = ({
   size,
   color,
   weight,
@@ -21,7 +21,7 @@ export default function Title({
   mr,
   ml,
   children,
-}: ITextProps) {
+}: ITextProps) => {
   return (
     <Text
       color={color}
@@ -34,4 +34,4 @@ export default function Title({
       {children}
     </Text>
   );
-}
+};

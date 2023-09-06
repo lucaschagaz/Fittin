@@ -1,11 +1,27 @@
-import {View, Text} from 'react-native';
 import React from 'react';
 import {HeaderContainer} from './styles';
 
-type IHeaderProps = {
-  children: React.ReactNode;
-};
-
-export default function Header({children}: IHeaderProps) {
-  return <HeaderContainer>{children}</HeaderContainer>;
+interface IHeaderProps {
+  align?: 'center' | 'flex-start' | 'flex-end';
+  justify?: 'center' | 'space-between' | 'flex-start' | 'flex-end';
+  direction?: 'row' | 'column';
+  children?: React.ReactNode;
 }
+
+export const Header = ({
+  children,
+  align,
+  justify,
+  direction,
+  ...rest
+}: IHeaderProps) => {
+  return (
+    <HeaderContainer
+      direction={direction}
+      align={align}
+      justify={justify}
+      {...rest}>
+      {children}
+    </HeaderContainer>
+  );
+};

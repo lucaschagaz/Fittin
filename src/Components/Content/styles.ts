@@ -22,4 +22,5 @@ export const Conteiner = styled.View<IConteinerProps>`
   padding-right: ${({pr}) => (pr ? pr : 10)}px;
   justify-content: ${({space}) => (space ? space : 'flex-start')};
   align-items: ${({align}) => (align ? align : 'center')};
+  background-color: ${({theme}) => theme.COLORS.TEXT};
 `;
