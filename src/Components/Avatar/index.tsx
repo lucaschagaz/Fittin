@@ -1,7 +1,8 @@
 import React from 'react';
 import {Image, Wrapper} from './styles';
+import {TouchableOpacityProps} from 'react-native';
 
-interface IAvatarProps {
+interface IAvatarProps extends TouchableOpacityProps {
   img?: string;
   sex?: 'man' | 'woman';
   borderColor?: 'GRAY' | 'PRIMARY';
@@ -11,6 +12,7 @@ export const Avatar = ({
   img,
   sex = 'man',
   borderColor = 'GRAY',
+  style,
   ...rest
 }: IAvatarProps) => {
   return (

@@ -13,7 +13,7 @@ export const Wrapper = styled.TouchableOpacity<IAvatarWrapperProps>`
   border-radius: ${({radius}) => (radius ? radius : 110)}px;
   align-items: center;
   justify-content: center;
-  background-color: ${({theme}) => theme.COLORS.TEXT};
+  background-color: ${({theme}) => theme.COLORS.PRIMARY_CONTRAST};
   margin: 0px 10px;
   border-width: 3px;
   border-color: ${({theme, borderColor}) =>
