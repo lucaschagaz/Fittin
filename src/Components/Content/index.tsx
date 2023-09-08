@@ -1,8 +1,7 @@
-import {View, Text} from 'react-native';
 import React from 'react';
 import {Conteiner} from './styles';
 
-type IContentProps = {
+interface IContentProps {
   children: React.ReactNode;
   pb?: number;
   pl?: number;
@@ -14,7 +13,7 @@ type IContentProps = {
     | 'flex-start'
     | 'flex-end';
   align?: 'center' | 'flex-start' | 'flex-end';
-};
+}
 
 export const Content = ({
   space,
