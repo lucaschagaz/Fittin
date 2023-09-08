@@ -3,7 +3,7 @@ import {Button, Content, Header, Title} from '../../../Components';
 import {ButtonContainer, ButtonImage, Container, Image} from './styles';
 import {View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import Avatar from '../../../Components/Avatar';
+import {Avatar} from '../../../Components/Avatar';
 
 export default function ChooseSex() {
   const [sex, setSex] = useState('');
@@ -41,11 +41,12 @@ export default function ChooseSex() {
         </View>
       </ButtonContainer>
       <Button
-        width={50}
-        disabled={sex == '' ? true : false}
-        variant={sex == '' ? 'secondary' : 'primary'}
-        title="Proximo passo"
         style={{alignSelf: 'flex-end'}}
+        bold
+        width="medium-155"
+        disabled={sex == '' ? true : false}
+        variant={sex == '' ? 'PrimaryLight' : 'primary'}
+        title="Proximo passo"
         onPress={() => navigation.navigate('Age')}
       />
     </Content>

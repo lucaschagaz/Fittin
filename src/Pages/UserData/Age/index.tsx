@@ -87,7 +87,7 @@ export default function Age() {
       <ButtomWrapper>
         <Button
           title="Passo anterior"
-          width={45}
+          width="medium-155"
           variant="secondary"
           onPress={() =>
             navigation.canGoBack()
@@ -97,7 +97,7 @@ export default function Age() {
         />
         <Button
           title="Proximo passo"
-          width={45}
+          width="medium-155"
           onPress={() => navigation.navigate('MeasurementsWeight')}
         />
       </ButtomWrapper>

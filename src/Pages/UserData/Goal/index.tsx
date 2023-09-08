@@ -29,10 +29,11 @@ export default function Goal() {
       </Header>
       <Container>
         <Button
-          width={90}
+          width="large-311"
           style={{
             borderColor: goal === 'Dieta' ? '#001eff' : 'transparent',
             marginBottom: 25,
+            borderWidth: 2,
           }}
           titleWeight={goal == 'Dieta' ? 'bold' : 'normal'}
           title="Dieta"
@@ -40,10 +41,11 @@ export default function Goal() {
           onPress={() => setGoal('Dieta')}
         />
         <Button
-          width={90}
+          width="large-311"
           style={{
             borderColor: goal === 'Treinos' ? '#001eff' : 'transparent',
             marginBottom: 25,
+            borderWidth: 2,
           }}
           titleWeight={goal == 'Treinos' ? 'bold' : 'normal'}
           title="Treinos"
@@ -51,10 +53,11 @@ export default function Goal() {
           onPress={() => setGoal('Treinos')}
         />
         <Button
-          width={90}
+          width="large-311"
           style={{
             borderColor: goal === 'Dieta e Treinos' ? '#001eff' : 'transparent',
             marginBottom: 25,
+            borderWidth: 2,
           }}
           titleWeight={goal == 'Dieta e Treinos' ? 'bold' : 'normal'}
           title="Dieta e Treinos"
@@ -65,7 +68,6 @@ export default function Goal() {
       <ButtomWrapper>
         <Button
           title="Passo anterior"
-          width={45}
           variant="secondary"
           onPress={() =>
             navigation.canGoBack()
@@ -75,7 +77,6 @@ export default function Goal() {
         />
         <Button
           title={goal == 'Treinos' ? 'Finzalizar' : 'Proximo Passo'}
-          width={45}
           onPress={chooseGoal}
         />
       </ButtomWrapper>

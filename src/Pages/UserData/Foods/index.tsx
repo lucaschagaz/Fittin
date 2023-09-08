@@ -25,10 +25,10 @@ export default function Foods() {
   return (
     <Content>
       <Header>
-        <Title size={26} weight="bold" mb={5}>
+        <Title size={26} mb={5}>
           Alimentos que não gosta.
         </Title>
-        <Title weight="bold" color="GRAY">
+        <Title color="GRAY">
           Quais alimentos não gostaria de ter em seu plano alimentar
         </Title>
       </Header>
@@ -60,7 +60,6 @@ export default function Foods() {
       <ButtomWrapper>
         <Button
           title="Passo anterior"
-          width={45}
           variant="secondary"
           onPress={() =>
             navigation.canGoBack()
@@ -71,12 +70,8 @@ export default function Foods() {
         <Button
           title="Finalizar"
           disabled={selectdsFoods.length == 0 ? true : false}
-          width={45}
           onPress={() => navigation.navigate('tabBar')}
-          style={{
-            borderColor: selectdsFoods.length == 0 ? '#99999971' : '#999',
-          }}
-          variant={selectdsFoods.length == 0 ? 'secondary' : 'primary'}
+          variant={selectdsFoods.length === 0 ? 'PrimaryLight' : 'primary'}
         />
       </ButtomWrapper>
     </Content>

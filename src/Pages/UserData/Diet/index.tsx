@@ -23,13 +23,13 @@ export default function Goal() {
         {Diets.map(diet => (
           <Button
             key={diet}
-            width={90}
+            width="large-311"
             style={{
               borderColor: borderColor === diet ? '#001eff' : 'transparent',
               marginBottom: 25,
+              borderWidth: 2,
             }}
             title={diet}
-            titleWeight={borderColor == diet ? 'bold' : 'normal'}
             variant="secondary"
             onPress={() => setBorderColor(diet)}
           />
@@ -38,7 +38,6 @@ export default function Goal() {
       <ButtomWrapper>
         <Button
           title="Passo anterior"
-          width={45}
           variant="secondary"
           onPress={() =>
             navigation.canGoBack()
@@ -48,7 +47,6 @@ export default function Goal() {
         />
         <Button
           title="Proximo passo"
-          width={45}
           onPress={() => navigation.navigate('Foods')}
         />
       </ButtomWrapper>
