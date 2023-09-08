@@ -4,18 +4,19 @@ type IButtonProps = {
   width?: number;
   height?: 'small' | 'large';
   bg?: string;
-  variant?: 'primary' | 'secondary';
+  border?: string;
+  borderWidth: number;
 };
 
-export const Container = styled.TouchableOpacity<IButtonProps>`
-  width: ${({width}) => (width ? width : 100)}%;
+export const Wrapper = styled.TouchableOpacity<IButtonProps>`
+  width: ${({width}) => (width ? width : 311)}px;
   height: ${({height}) => (height == 'large' ? 50 : 38)}px;
-  background-color: ${({theme, variant}) =>
-    variant == 'primary' ? theme.COLORS.PRIMARY : 'transparent'};
+  background-color: ${({theme, bg}) =>
+    bg ? theme.COLORS[bg] : theme.COLORS.PRIMARY};
   border-radius: 25px;
   align-items: center;
   justify-content: center;
-  border-width: ${({variant}) => (variant !== 'primary' ? 2 : 0)}px;
-  border-color: ${({theme, variant}) =>
-    variant == 'secondary' && theme.COLORS.GRAYDARK};
+  border-width: ${({borderWidth}) => (borderWidth ? borderWidth : 0)}px;
+  border-color: ${({theme, border}) =>
+    border ? theme.COLORS[border] : 'transparent'};
 `;

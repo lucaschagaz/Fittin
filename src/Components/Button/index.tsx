@@ -1,40 +1,54 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {ActivityIndicator, TouchableOpacityProps} from 'react-native';
-import {Container} from './styles';
-import Title from '../Title';
-
+import {Wrapper} from './styles';
+import {Title} from '../Title';
+import {variantType, variants} from '../../Utils/Mocks/buttonVarients';
 export interface IButtonProps extends TouchableOpacityProps {
   height?: 'small' | 'large';
-  width?: number;
+  width?: 'small-126' | 'medium-155' | 'large-311';
   isLoading?: boolean;
-  variant?: 'primary' | 'secondary';
+  variant?: 'primary' | 'secondary' | 'PrimaryLight';
   title: string;
-  titleWeight?: string;
+  bold?: boolean;
+  semiBold?: boolean;
 }
 
 export const Button = ({
-  width,
+  width = 'medium-155',
   height = 'large',
   variant = 'primary',
+  bold = false,
+  semiBold = false,
   children,
   title,
-  titleWeight,
   isLoading,
   ...rest
 }: IButtonProps) => {
-  const textColor = variant == 'primary' ? 'TEXT' : 'BLACK';
+  const variantKey: variantType = variants[variant];
+
+  const btnSize = () => {
+    if (width === 'large-311') {
+      return 311;
+    } else if (width === 'small-126') {
+      return 126;
+    } else {
+      return 155;
+    }
+  };
 
   return (
-    <Container width={width} height={height} variant={variant} {...rest}>
+    <Wrapper
+      width={btnSize()}
+      height={height}
+      bg={variantKey.backgroundColor}
+      border={variantKey.BorderColor}
+      borderWidth={variantKey.BorderWidht}
+      {...rest}>
       {isLoading ? (
         <ActivityIndicator size={25} color="#FFF" />
       ) : (
-        <Title
-          weight={titleWeight}
-          color={titleWeight == 'bold' ? 'BLACK' : textColor}>
-          {title}
-        </Title>
+        <Title color={variantKey.color}>{title}</Title>
       )}
-    </Container>
+    </Wrapper>
   );
 };
