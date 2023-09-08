@@ -12,7 +12,6 @@ export const Avatar = ({
   img,
   sex = 'man',
   borderColor = 'GRAY',
-  style,
   ...rest
 }: IAvatarProps) => {
   return (
