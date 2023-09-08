@@ -24,7 +24,7 @@ export default function ForgotPassword() {
         <Input label="Email" />
       </Container>
       <Button onPress={goToOTPCode}>
-        <Title color="TEXT" weight="bold">
+        <Title color="PRIMARY_CONTRAST" weight="bold">
           Enviar
         </Title>
       </Button>

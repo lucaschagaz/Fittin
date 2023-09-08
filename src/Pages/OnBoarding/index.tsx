@@ -78,7 +78,7 @@ export default function OnBoarding() {
       />
       <Title mb={10}>Passo 1 de 3</Title>
       <Button>
-        <Title weight="bold" color="TEXT">
+        <Title weight="bold" color="PRIMARY_CONTRAST">
           Prosseguir
         </Title>
       </Button>

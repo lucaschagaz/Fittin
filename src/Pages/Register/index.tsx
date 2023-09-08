@@ -50,7 +50,7 @@ export default function Register() {
       </InputConteiner>
       <Footer>
         <Button>
-          <Title size={20} weight="bold" color="TEXT">
+          <Title size={20} weight="bold" color="PRIMARY_CONTRAST">
             Registar-se
           </Title>
         </Button>

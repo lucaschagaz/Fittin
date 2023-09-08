@@ -60,7 +60,7 @@ export default function Login() {
       </TextConteiner>
       <Footer>
         <Button onPress={handleLogin} isLoading={loading}>
-          <Title size={20} weight="bold" color="TEXT">
+          <Title size={20} weight="bold" color="PRIMARY_CONTRAST">
             Entrar
           </Title>
         </Button>

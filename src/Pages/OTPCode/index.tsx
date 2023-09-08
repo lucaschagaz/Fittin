@@ -79,7 +79,7 @@ export default function OTPCode() {
         </TouchableOpacity>
       </Container>
       <Button>
-        <Title color="TEXT" weight="bold">
+        <Title color="PRIMARY_CONTRAST" weight="bold">
           Enviar
         </Title>
       </Button>
