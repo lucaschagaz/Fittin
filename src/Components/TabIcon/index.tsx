@@ -1,7 +1,7 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome6';
 
-import Title from '../Title';
+import {Title} from '../Title';
 
 import {Wrapper} from './styles';
 
@@ -26,7 +26,7 @@ export const TabIcon = ({
         size={size ? size : 20}
         color={focused ? '#3447d4' : '#c3bfbf'}
       />
-      <Title mt={3} size={12} weight={focused ? 'bold' : 'normal'}>
+      <Title mt={3} size={12}>
         {screenName}
       </Title>
     </Wrapper>

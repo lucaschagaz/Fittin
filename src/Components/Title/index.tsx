@@ -4,7 +4,6 @@ import {Text} from './styles';
 type ITextProps = {
   size?: number;
   color?: string;
-  weight?: 'normal' | 'bold' | 'bolder';
   children: string;
   mr?: number;
   ml?: number;
@@ -12,25 +11,9 @@ type ITextProps = {
   mb?: number;
 };
 
-export const Title = ({
-  size,
-  color,
-  weight,
-  mb,
-  mt,
-  mr,
-  ml,
-  children,
-}: ITextProps) => {
+export const Title = ({size, color, mb, mt, mr, ml, children}: ITextProps) => {
   return (
-    <Text
-      color={color}
-      weight={weight}
-      size={size}
-      mb={mb}
-      mr={mr}
-      ml={ml}
-      mt={mt}>
+    <Text color={color} size={size} mb={mb} mr={mr} ml={ml} mt={mt}>
       {children}
     </Text>
   );
