@@ -6,10 +6,10 @@ export const variants = {
     BorderWidht: 0,
   },
   PrimaryLight: {
-    backgroundColor: 'GRAY_Light',
-    color: 'GRAYDARK',
-    BorderColor: 'GRAY',
-    BorderWidht: 1,
+    backgroundColor: 'PRIMARY_BLUR',
+    color: 'GRAY_Light',
+    BorderColor: 'PRIMARY_BLUR',
+    BorderWidht: 0,
   },
   secondary: {
     backgroundColor: 'transparent',

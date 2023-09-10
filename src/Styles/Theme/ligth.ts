@@ -2,7 +2,7 @@ export default {
   COLORS: {
     PRIMARY: '#3447d4',
     PRIMARY_100: '#5063ee',
-    PRIMARY_BLUR: '#808ded',
+    PRIMARY_BLUR: '#99A2D8',
     SENCONDARY: '#d47c34',
     SENCONDARY_100: '#fa9543',
     SUCCESS: '#41a076',
