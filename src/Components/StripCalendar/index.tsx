@@ -1,10 +1,12 @@
 import React from 'react';
 import {Dimensions, Text, View} from 'react-native';
-import Calendar from 'react-native-calendar-strip';
+import Calendar, {CalendarStripProps} from 'react-native-calendar-strip';
 import moment from 'moment';
 import 'moment/locale/pt-br';
 
-export const StipCalendar = () => {
+interface IStripCalendarProps extends CalendarStripProps {}
+
+export const StipCalendar = ({...rest}: IStripCalendarProps) => {
   const {width} = Dimensions.get('screen');
 
   const locale = {
@@ -62,18 +64,42 @@ export const StipCalendar = () => {
   return (
     <>
       <Calendar
-        markedDatesStyle={{
-          backgroundColor: 'blue',
-          padding: 3,
-          color: '#ffffff',
-        }}
+        {...rest}
         scrollable={true}
-        style={{width: width, height: 100}}
-        dateNumberStyle={{color: '#999'}}
-        dateNameStyle={{fontSize: 17}}
+        style={{
+          width: width * 0.98,
+          height: 100,
+          borderRadius: 15,
+        }}
         rightSelector={[]}
         leftSelector={[]}
         locale={locale}
+        calendarHeaderStyle={{
+          alignSelf: 'flex-start',
+          paddingLeft: 20,
+          fontSize: 19,
+        }}
+        dateNumberStyle={{
+          color: '#999',
+          paddingBottom: 3,
+          marginBottom: 5,
+          paddingHorizontal: 3,
+          width: 30,
+        }}
+        dateNameStyle={{fontSize: 17, marginBottom: 8}}
+        highlightDateNumberStyle={{
+          color: 'white',
+          backgroundColor: '#0943d7',
+          borderRadius: 5,
+          paddingHorizontal: 3,
+          paddingBottom: 3,
+          marginBottom: 5,
+          width: 30,
+        }}
+        highlightDateNameStyle={{
+          fontSize: 17,
+          marginBottom: 8,
+        }}
       />
     </>
   );
