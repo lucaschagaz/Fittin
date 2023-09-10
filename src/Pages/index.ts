@@ -15,7 +15,7 @@ import YourDeit from './YourDiet';
 import WorkOuts from './WorkOuts';
 import Profile from './Profile';
 import Insight from './Insight';
-import Home from './Home';
+import Home from './Home/Home';
 
 export {
   Home,
