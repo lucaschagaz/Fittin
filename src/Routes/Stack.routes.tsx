@@ -24,9 +24,7 @@ export default function Stackroutes() {
   const [logged, setLogged] = useState(false);
 
   return (
-    <Navigator
-      screenOptions={{headerShown: false}}
-      initialRouteName="ChooseSex">
+    <Navigator screenOptions={{headerShown: false}} initialRouteName="Foods">
       <Screen name="OnBoarding" component={OnBoarding} />
       <Screen name="Login" component={Login} />
       <Screen name="Register" component={Register} />
