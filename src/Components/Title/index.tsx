@@ -1,7 +1,8 @@
 import React from 'react';
-import {Text} from './styles';
+import {TextProps} from 'react-native';
+import {RNText} from './styles';
 
-type ITextProps = {
+interface ITextProps extends TextProps {
   size?: number;
   color?: string;
   children: string;
@@ -9,12 +10,12 @@ type ITextProps = {
   ml?: number;
   mt?: number;
   mb?: number;
-};
+}
 
 export const Title = ({size, color, mb, mt, mr, ml, children}: ITextProps) => {
   return (
-    <Text color={color} size={size} mb={mb} mr={mr} ml={ml} mt={mt}>
+    <RNText color={color} size={size} mb={mb} mr={mr} ml={ml} mt={mt}>
       {children}
-    </Text>
+    </RNText>
   );
 };

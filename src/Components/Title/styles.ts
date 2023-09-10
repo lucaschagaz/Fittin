@@ -1,15 +1,15 @@
 import styled from 'styled-components/native';
 
-type ITextProps = {
+interface ITextProps {
   size?: number;
   color?: string;
   mr?: number;
   ml?: number;
   mt?: number;
   mb?: number;
-};
+}
 
-export const Text = styled.Text<ITextProps>`
+export const RNText = styled.Text<ITextProps>`
   font-size: ${({size}) => (size ? size : 18)}px;
   color: ${({theme, color}) =>
     color ? theme.COLORS[color] : theme.COLORS.BLACK};
