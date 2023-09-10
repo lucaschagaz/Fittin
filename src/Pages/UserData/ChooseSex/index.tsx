@@ -10,6 +10,18 @@ export default function ChooseSex() {
 
   const navigation = useNavigation();
 
+  const handleSex = (value: string) => {
+    if (sex == '') {
+      setSex(value);
+    } else if (sex == 'man' && value == 'man') {
+      setSex('');
+    } else if (sex == 'woman' && value == 'woman') {
+      setSex('');
+    } else if (sex != '') {
+      setSex(value);
+    }
+  };
+
   return (
     <Content>
       <Header>
@@ -23,8 +35,8 @@ export default function ChooseSex() {
       <ButtonContainer>
         <View>
           <Avatar
-            borderColor={sex == 'men' ? 'PRIMARY' : 'GRAY'}
-            onPress={() => setSex('men')}
+            borderColor={sex == 'man' ? 'PRIMARY' : 'GRAY'}
+            onPress={() => handleSex('man')}
           />
           <Title>Homen</Title>
         </View>
@@ -35,7 +47,7 @@ export default function ChooseSex() {
           <Avatar
             borderColor={sex == 'woman' ? 'PRIMARY' : 'GRAY'}
             sex="woman"
-            onPress={() => setSex('woman')}
+            onPress={() => handleSex('woman')}
           />
           <Title>Mulher</Title>
         </View>
