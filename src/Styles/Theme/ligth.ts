@@ -13,5 +13,7 @@ export default {
     GRAYDARK: '#91929c',
     GRAY_100: '#99959155',
     BLACK: '#2d2d2d',
+    GRAY_TRANSPARENT: '#ffffff74',
+    BACKGROUND_TRANSPARENT: '#1a1a1ab8',
   },
 };
