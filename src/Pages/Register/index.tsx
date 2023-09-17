@@ -1,6 +1,6 @@
 import {TouchableOpacity} from 'react-native';
 import React, {useState} from 'react';
-import {Button, Content, Header, Input, Title} from '../../Components';
+import {Button, Content, Input, Text} from '../../Components';
 import {
   Box,
   Footer,
@@ -23,11 +23,9 @@ export default function Register() {
 
   return (
     <Content>
-      <Header>
-        <Title size={25} color="BLACK" weight="bold">
-          Login
-        </Title>
-      </Header>
+      <Text size={25} color="BLACK" weight="bold">
+        Login
+      </Text>
       <InputConteiner>
         <Input value={name} onChangeText={text => setName(text)} label="Nome" />
         <Input
@@ -50,30 +48,30 @@ export default function Register() {
       </InputConteiner>
       <Footer>
         <Button>
-          <Title size={20} weight="bold" color="PRIMARY_CONTRAST">
+          <Text size={20} weight="bold" color="PRIMARY_CONTRAST">
             Registar-se
-          </Title>
+          </Text>
         </Button>
         <Box>
           <Line style={{marginRight: 5}} />
-          <Title size={14}>Ou faça login com</Title>
+          <Text size={14}>Ou faça login com</Text>
           <Line style={{marginLeft: 5}} />
         </Box>
         <LoginSocialContainer>
           <LoginSocialBox>
-            <IconLogin source={require('../../Assets/icons/google-logo.png')} />
+            <IconLogin source={require('../../assets/icons/google-logo.png')} />
           </LoginSocialBox>
           <LoginSocialBox>
-            <IconLogin source={require('../../Assets/icons/facebook-48.png')} />
+            <IconLogin source={require('../../assets/icons/facebook-48.png')} />
           </LoginSocialBox>
         </LoginSocialContainer>
-        <Title size={16} color="GRAY" mb={5}>
+        <Text size={16} color="GRAY" mb={5}>
           Já possui conta?
-        </Title>
+        </Text>
         <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-          <Title color="PRIMARY" weight="bold">
+          <Text color="PRIMARY" weight="bold">
             Fazer login
-          </Title>
+          </Text>
         </TouchableOpacity>
       </Footer>
     </Content>

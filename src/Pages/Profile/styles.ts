@@ -34,7 +34,7 @@ export const LogoutWrapper = styled.View`
   border-color: ${({theme}) => theme.COLORS.GRAY_100};
 `;
 
-export const Box = styled.View`
+export const NameBox = styled.View`
   flex: 1;
   align-items: flex-start;
   padding-left: 15px;

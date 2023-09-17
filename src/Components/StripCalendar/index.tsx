@@ -77,7 +77,8 @@ export const StipCalendar = ({...rest}: IStripCalendarProps) => {
         calendarHeaderStyle={{
           alignSelf: 'flex-start',
           paddingLeft: 20,
-          fontSize: 19,
+          fontSize: 22,
+          color: '#010101',
         }}
         dateNumberStyle={{
           color: '#999',

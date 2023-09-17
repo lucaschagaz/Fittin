@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {Button, Content, Header, Title} from '../../../Components';
+import {Button, Content, Text} from '../../../Components';
 import {ButtomWrapper, Container, ContentContainer} from '../styles';
 import {useNavigation} from '@react-navigation/native';
 import {
@@ -56,18 +56,14 @@ export default function MeasurementsHeight() {
 
   return (
     <Content>
-      <Header>
-        <Title size={28} mb={5} weight="bold">
-          Informe sua Altura:
-        </Title>
-        <Title weight="bold" color="GRAY">
-          Informção poderá ser alterada posteriormente
-        </Title>
-      </Header>
+      <Text font="Heading_one">Informe-nos sua Altura</Text>
+      <Text font="Heading_three" color="GRAY">
+        Esse dado estará disponivel para alteração
+      </Text>
       <Container>
-        <Title ml={20} size={30}>
+        <Text style={{fontSize: 30}} font="Heading_two">
           {measurements} cm
-        </Title>
+        </Text>
         <ContentContainer>
           <ScrollView
             horizontal
@@ -83,7 +79,6 @@ export default function MeasurementsHeight() {
       <ButtomWrapper>
         <Button
           title="Passo anterior"
-          width={45}
           variant="secondary"
           onPress={() =>
             navigation.canGoBack()
@@ -93,7 +88,6 @@ export default function MeasurementsHeight() {
         />
         <Button
           title="Proximo passo"
-          width={45}
           onPress={() => navigation.navigate('Goal')}
         />
       </ButtomWrapper>

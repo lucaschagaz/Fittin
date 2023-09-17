@@ -19,9 +19,9 @@ export const Avatar = ({
       {img ? (
         <Image source={{uri: img}} />
       ) : sex == 'man' ? (
-        <Image source={require('../../Assets/man.png')} />
+        <Image source={require('../../assets/man.png')} />
       ) : (
-        <Image source={require('../../Assets/woman.png')} />
+        <Image source={require('../../assets/woman.png')} />
       )}
     </Wrapper>
   );

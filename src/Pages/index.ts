@@ -37,3 +37,5 @@ export {
   Profile,
   Insight,
 };
+
+export {Experience} from './UserData/Experiance';

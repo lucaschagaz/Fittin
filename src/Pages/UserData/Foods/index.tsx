@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import {Button, Content, Header, Title} from '../../../Components';
-import {ButtomWrapper, FoodsWrapper, FoodsInput} from '../styles';
-import {foods} from '../../../Utils/Mocks/foods';
+import {Button, Content, Text} from '../../../Components';
+import {ButtomWrapper, FoodsWrapper} from '../styles';
+import {foods} from '../../../Utils/Mocks/Variabels';
 import {useNavigation} from '@react-navigation/native';
-import {Text, TouchableOpacity} from 'react-native';
+import {TouchableOpacity} from 'react-native';
 
 export default function Foods() {
   /* LIDAR COM TECLADO NESSA PARTE! USAR UMA LIB */
@@ -24,14 +24,10 @@ export default function Foods() {
 
   return (
     <Content>
-      <Header>
-        <Title size={26} mb={5}>
-          Alimentos que não gosta.
-        </Title>
-        <Title color="GRAY">
-          Quais alimentos não gostaria de ter em seu plano alimentar
-        </Title>
-      </Header>
+      <Text font="Heading_one">Alimentos que não gosta.</Text>
+      <Text font="Heading_three" color="GRAY">
+        Quais alimentos não gostaria de ter em seu plano alimentar
+      </Text>
       <FoodsWrapper>
         {foods.map(food => (
           <TouchableOpacity
@@ -44,12 +40,12 @@ export default function Foods() {
                 ? '#283ee114'
                 : 'transparent',
               paddingVertical: 10,
-              paddingHorizontal: 20,
+              paddingHorizontal: 15,
               borderRadius: 30,
             }}>
             <Text
+              font="Paragraph"
               style={{
-                fontSize: 15,
                 color: selectdsFoods.includes(food) ? '#001eff' : '#999',
               }}>
               {food}
@@ -71,7 +67,7 @@ export default function Foods() {
           title="Finalizar"
           disabled={selectdsFoods.length == 0 ? true : false}
           onPress={() => navigation.navigate('tabBar')}
-          variant={selectdsFoods.length === 0 ? 'PrimaryLight' : 'primary'}
+          variant={selectdsFoods.length === 0 ? 'disable_Button' : 'primary'}
         />
       </ButtomWrapper>
     </Content>

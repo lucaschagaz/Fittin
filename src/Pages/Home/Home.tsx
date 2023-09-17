@@ -1,11 +1,12 @@
 import React from 'react';
-import {Content, StipCalendar, Title} from '../../Components';
+import {Button, Content, StipCalendar, Text} from '../../Components';
 import {
   ImageBackgroud,
   TagWorkoutInformation,
   WorkoutHomeTitle,
   WorkoutHomeHeader,
 } from './styles';
+import {View} from 'react-native';
 
 export default function Home() {
   // dia da semana
@@ -17,22 +18,25 @@ export default function Home() {
       <ImageBackgroud
         resizeMode="cover"
         borderRadius={20}
-        source={require('../../Assets/background/backMan.jpg')}>
+        source={require('../../assets/background/arms.jpg')}>
         <WorkoutHomeHeader>
           <TagWorkoutInformation>
-            <Title color="PRIMARY_CONTRAST">Ver treino</Title>
+            <Text color="PRIMARY_CONTRAST">Ver treino</Text>
           </TagWorkoutInformation>
           <TagWorkoutInformation>
-            <Title color="PRIMARY_CONTRAST">5 exercicios</Title>
+            <Text color="PRIMARY_CONTRAST">5 exercicios</Text>
           </TagWorkoutInformation>
         </WorkoutHomeHeader>
         <WorkoutHomeTitle>
-          <Title size={25} color="PRIMARY_CONTRAST">
-            Hoje seu treino é de:
-          </Title>
-          <Title size={35} color="PRIMARY_CONTRAST">
+          <Text font="Heading_two" color="PRIMARY_CONTRAST">
+            Treino de Hoje:
+          </Text>
+          <Text
+            style={{paddingLeft: 3}}
+            font="Heading_two"
+            color="PRIMARY_CONTRAST">
             Peito
-          </Title>
+          </Text>
         </WorkoutHomeTitle>
       </ImageBackgroud>
     </Content>

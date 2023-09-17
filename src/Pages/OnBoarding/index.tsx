@@ -1,14 +1,6 @@
-import {
-  View,
-  Image,
-  Text,
-  Dimensions,
-  FlatList,
-  StyleSheet,
-} from 'react-native';
+import {Image, Dimensions, FlatList, StyleSheet} from 'react-native';
 import React, {useEffect, useRef} from 'react';
-import Content from '../../Components/Content';
-import {Button, Title} from '../../Components';
+import {Button, Content, Text} from '../../Components';
 
 const {width, height} = Dimensions.get('window');
 
@@ -16,19 +8,19 @@ const shape = [
   {
     bg: '#25ff25ca',
     id: 1,
-    photo: require('../../Assets/onBoarding/gym1.png'),
+    photo: require('../../assets/onBoarding/gym1.png'),
     title: 'Um texto Fitness qualquer',
   },
   {
     bg: '#ff25c1ca',
     id: 2,
-    photo: require('../../Assets/onBoarding/gym2.png'),
+    photo: require('../../assets/onBoarding/gym2.png'),
     title: 'Saude, seguranca e representatividade',
   },
   {
     bg: '#3425ffcb',
     id: 3,
-    photo: require('../../Assets/onBoarding/gym3.png'),
+    photo: require('../../assets/onBoarding/gym3.png'),
     title: 'outro texto fitness qualquer sobre qualquer coisa',
   },
 ];
@@ -58,7 +50,7 @@ export default function OnBoarding() {
           }}
           source={item.photo}
         />
-        <Title mt={10}>texto</Title>
+        <Text mt={10}>texto</Text>
       </Animated.View>
     );
   };
@@ -76,11 +68,11 @@ export default function OnBoarding() {
         pagingEnabled
         showsHorizontalScrollIndicator={false}
       />
-      <Title mb={10}>Passo 1 de 3</Title>
+      <Text mb={10}>Passo 1 de 3</Text>
       <Button>
-        <Title weight="bold" color="PRIMARY_CONTRAST">
+        <Text weight="bold" color="PRIMARY_CONTRAST">
           Prosseguir
-        </Title>
+        </Text>
       </Button>
     </Content>
   );

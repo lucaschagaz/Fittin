@@ -1,9 +1,7 @@
-import {Button} from './Button';
-import {Content} from './Content';
-import {Title} from './Title';
-import {Header} from './Header';
-import {Input} from './Input';
-import {TabIcon} from './TabIcon';
-import {Avatar} from './Avatar';
-import {StipCalendar} from './StripCalendar';
-export {Button, Title, Content, Header, Input, TabIcon, Avatar, StipCalendar};
+export {Button} from './Button';
+export {Content} from './Content';
+export {Text} from './Text';
+export {Input} from './Input';
+export {TabIcon} from './TabIcon';
+export {Avatar} from './Avatar';
+export {StipCalendar} from './StripCalendar';

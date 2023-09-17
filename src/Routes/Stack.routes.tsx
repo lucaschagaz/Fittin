@@ -14,6 +14,7 @@ import {
   Diet,
   Foods,
   Home,
+  Experience,
 } from '../Pages';
 import Tabroutes from './BottomTab.routes';
 const Stack = createNativeStackNavigator();
@@ -24,7 +25,9 @@ export default function Stackroutes() {
   const [logged, setLogged] = useState(false);
 
   return (
-    <Navigator screenOptions={{headerShown: false}} initialRouteName="Foods">
+    <Navigator
+      screenOptions={{headerShown: false}}
+      initialRouteName="ChooseSex">
       <Screen name="OnBoarding" component={OnBoarding} />
       <Screen name="Login" component={Login} />
       <Screen name="Register" component={Register} />
@@ -35,6 +38,7 @@ export default function Stackroutes() {
       <Screen name="MeasurementsWeight" component={MeasurementsWeight} />
       <Screen name="Age" component={Age} />
       <Screen name="Goal" component={Goal} />
+      <Screen name="Experience" component={Experience} />
       <Screen name="Diet" component={Diet} />
       <Screen name="Foods" component={Foods} />
       <Screen

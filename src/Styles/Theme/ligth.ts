@@ -1,4 +1,4 @@
-export default {
+export const Theme = {
   COLORS: {
     PRIMARY: '#3447d4',
     PRIMARY_100: '#5063ee',
@@ -15,5 +15,8 @@ export default {
     BLACK: '#2d2d2d',
     GRAY_TRANSPARENT: '#ffffff74',
     BACKGROUND_TRANSPARENT: '#1a1a1ab8',
+    TRANSPARENT: 'transparent',
   },
 };
+
+export type ThemeColors = (typeof Theme)['COLORS'];

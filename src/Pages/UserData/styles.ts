@@ -12,9 +12,9 @@ export const FoodsWrapper = styled.View`
   flex: 1;
   flex-wrap: wrap;
   justify-content: center;
-  /* align-content: center; */
+  align-content: center;
   flex-direction: row;
-  margin-top: 60px;
+  margin-top: 30px;
   gap: 12px;
 `;
 
@@ -55,7 +55,7 @@ export const Pin = styled.View`
 `;
 export const MeasurementsValue = styled.View`
   flex-direction: row;
-  align-items: flex-end;
+  align-items: center;
 `;
 
 export const AgeBox = styled.TouchableOpacity`

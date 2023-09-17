@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {Button, Content, Header, Title} from '../../Components';
+import {Button, Content, Text} from '../../Components';
 import {Container, Input, InputContainer} from './styles';
 import {TouchableOpacity} from 'react-native';
 
@@ -17,15 +17,13 @@ export default function OTPCode() {
 
   return (
     <Content>
-      <Header>
-        <Title size={25} weight="bold">
-          Verificação OTP
-        </Title>
-        <Title mt={10} color="GRAY">
-          Check sua caixa de mensagem (SMS) nossa equipe enviou um codigo para o
-          numero +89 999** ****999
-        </Title>
-      </Header>
+      <Text size={25} weight="bold">
+        Verificação OTP
+      </Text>
+      <Text mt={10} color="GRAY">
+        Check sua caixa de mensagem (SMS) nossa equipe enviou um codigo para o
+        numero +89 999** ****999
+      </Text>
       <Container>
         <InputContainer>
           <Input
@@ -71,17 +69,17 @@ export default function OTPCode() {
             }}
           />
         </InputContainer>
-        <Title color="GRAY" mb={10}>
+        <Text color="GRAY" mb={10}>
           Não recebeu o codigo?
-        </Title>
+        </Text>
         <TouchableOpacity>
-          <Title color="SENCONDARY">Reenviar o codigo</Title>
+          <Text color="SENCONDARY">Reenviar o codigo</Text>
         </TouchableOpacity>
       </Container>
-      <Button>
-        <Title color="PRIMARY_CONTRAST" weight="bold">
+      <Button title="Enviar">
+        {/* <Text color="PRIMARY_CONTRAST" weight="bold">
           Enviar
-        </Title>
+        </Text> */}
       </Button>
     </Content>
   );

@@ -3,11 +3,11 @@ import React from 'react';
 import Routes from './Routes/routes';
 import {ThemeProvider} from 'styled-components';
 
-import theme from './Styles/Theme/ligth';
+import {Theme} from './Styles/Theme/ligth';
 
 export default function App() {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={Theme}>
       <View style={styles.Conteiner}>
         <Routes />
       </View>

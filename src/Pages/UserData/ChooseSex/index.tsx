@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Button, Content, Header, Title} from '../../../Components';
+import {Button, Content, Text} from '../../../Components';
 import {ButtonContainer, ButtonImage, Container, Image} from './styles';
 import {View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
@@ -24,40 +24,35 @@ export default function ChooseSex() {
 
   return (
     <Content>
-      <Header>
-        <Title size={26} weight="bold">
-          Qual o seu sexo?
-        </Title>
-        <Title weight="bold" color="GRAY">
-          Dados necessarias para criação do seu plano personalizado
-        </Title>
-      </Header>
+      <Text font="Heading_one">Qual o seu sexo?</Text>
+      <Text font="Heading_three" color="GRAY">
+        Dados necessarios para criação do seu plano personalizado
+      </Text>
       <ButtonContainer>
         <View>
           <Avatar
+            style={{marginBottom: 10}}
             borderColor={sex == 'man' ? 'PRIMARY' : 'GRAY'}
             onPress={() => handleSex('man')}
           />
-          <Title>Homen</Title>
+          <Text font="Heading_three">Homen</Text>
         </View>
-        <Title weight="bold" size={25}>
-          ou
-        </Title>
+        <Text font="Paragraph">ou</Text>
         <View>
           <Avatar
+            style={{marginBottom: 10}}
             borderColor={sex == 'woman' ? 'PRIMARY' : 'GRAY'}
             sex="woman"
             onPress={() => handleSex('woman')}
           />
-          <Title>Mulher</Title>
+          <Text font="Heading_three">Mulher</Text>
         </View>
       </ButtonContainer>
       <Button
         style={{alignSelf: 'flex-end'}}
-        bold
         width="medium-155"
         disabled={sex == '' ? true : false}
-        variant={sex == '' ? 'PrimaryLight' : 'primary'}
+        variant={sex == '' ? 'disable_Button' : 'primary'}
         title="Proximo passo"
         onPress={() => navigation.navigate('Age')}
       />

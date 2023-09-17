@@ -1,14 +1,14 @@
 import React, {useState} from 'react';
-import {Button, Content, Header, Title} from '../../../Components';
+import {Button, Content, Text} from '../../../Components';
 import {ButtomWrapper, Container} from '../styles';
 import {useNavigation} from '@react-navigation/native';
 
 export default function Goal() {
   const navigation = useNavigation();
 
-  const [goal, setGoal] = useState<'Dieta e Treinos' | 'Dieta' | 'Treinos'>(
-    'Dieta',
-  );
+  type IGoal = 'Dieta e Treinos' | 'Dieta' | 'Treinos';
+
+  const [goal, setGoal] = useState<IGoal>('Dieta');
 
   const chooseGoal = () => {
     if (goal == 'Treinos') {
@@ -19,14 +19,10 @@ export default function Goal() {
   };
   return (
     <Content>
-      <Header>
-        <Title size={26} weight="bold" mb={5}>
-          Seu Objetivo no App é?
-        </Title>
-        <Title weight="bold" color="GRAY">
-          Dados necessarias para criação do seu plano personalizado
-        </Title>
-      </Header>
+      <Text font="Heading_one">O App sera usado para?</Text>
+      <Text font="Heading_three" color="GRAY">
+        Dados necessarios para criação do seu plano personalizado
+      </Text>
       <Container>
         <Button
           width="large-311"
@@ -35,7 +31,7 @@ export default function Goal() {
             marginBottom: 25,
             borderWidth: 2,
           }}
-          titleWeight={goal == 'Dieta' ? 'bold' : 'normal'}
+          bold={goal == 'Dieta' ? true : false}
           title="Dieta"
           variant="secondary"
           onPress={() => setGoal('Dieta')}
@@ -47,7 +43,7 @@ export default function Goal() {
             marginBottom: 25,
             borderWidth: 2,
           }}
-          titleWeight={goal == 'Treinos' ? 'bold' : 'normal'}
+          bold={goal == 'Treinos' ? true : false}
           title="Treinos"
           variant="secondary"
           onPress={() => setGoal('Treinos')}
@@ -59,7 +55,7 @@ export default function Goal() {
             marginBottom: 25,
             borderWidth: 2,
           }}
-          titleWeight={goal == 'Dieta e Treinos' ? 'bold' : 'normal'}
+          bold={goal == 'Dieta e Treinos' ? true : false}
           title="Dieta e Treinos"
           variant="secondary"
           onPress={() => setGoal('Dieta e Treinos')}

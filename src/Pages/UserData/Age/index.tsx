@@ -2,13 +2,12 @@ import React, {useEffect, useRef} from 'react';
 import {View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
-import {Button, Content, Header, Title} from '../../../Components';
+import {Button, Content, Text} from '../../../Components';
 import {AgeBox, ButtomWrapper, Container} from '../styles';
 import {
   ScrollView,
   NativeSyntheticEvent,
   NativeScrollEvent,
-  Text,
 } from 'react-native';
 import useMeasurements from '../../../hook/useMeasurements';
 
@@ -34,14 +33,10 @@ export default function Age() {
 
   return (
     <Content>
-      <Header>
-        <Title size={28} weight="bold">
-          Informe sua Idade:
-        </Title>
-        <Title weight="bold" color="GRAY">
-          Dados necessarias para criação do seu plano personalizado
-        </Title>
-      </Header>
+      <Text font="Heading_one">Informe-nos sua Idade</Text>
+      <Text color="GRAY" font="Heading_three">
+        Dados necessarios para criação do seu plano personalizado
+      </Text>
       <Container>
         <View style={{height: '80%'}}>
           <ScrollView
@@ -56,6 +51,7 @@ export default function Age() {
             {value?.map(number => (
               <AgeBox activeOpacity={1} key={number}>
                 <Text
+                  font="Heading_one"
                   style={{
                     fontSize:
                       number == measurements + 1 || number == measurements - 1

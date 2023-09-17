@@ -1,11 +1,12 @@
 import styled from 'styled-components/native';
+import {ThemeColors} from '../../Styles/Theme/ligth';
 
 type IButtonProps = {
   width?: number;
   height?: 'small' | 'large';
-  bg?: string;
-  border?: string;
-  borderWidth: number;
+  bg?: keyof ThemeColors;
+  border?: keyof ThemeColors;
+  borderWidth?: number;
 };
 
 export const Wrapper = styled.TouchableOpacity<IButtonProps>`

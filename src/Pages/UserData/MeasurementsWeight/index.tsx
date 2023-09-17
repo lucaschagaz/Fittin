@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {Button, Content, Header, Title} from '../../../Components';
+import {Button, Content, Text} from '../../../Components';
 import {
   Container,
   MeasurementsValue,
@@ -33,20 +33,16 @@ export default function MeasurementsWeight() {
 
   return (
     <Content>
-      <Header>
-        <Title size={28} mb={5} weight="bold">
-          Informe seu Peso?
-        </Title>
-        <Title weight="bold" color="GRAY">
-          Informção poderá ser alterada posteriormente
-        </Title>
-      </Header>
+      <Text font="Heading_one">Informe-nos seu Peso</Text>
+      <Text font="Heading_three" color="GRAY">
+        Esse dado estará disponivel para alteração
+      </Text>
       <Container>
         <MeasurementsValue>
-          <Title size={45}>{measurements}</Title>
-          <Title mb={10} ml={2}>
+          <Text font="Heading_two">{measurements}</Text>
+          <Text font="Heading_two" style={{marginLeft: 5}}>
             kg
-          </Title>
+          </Text>
         </MeasurementsValue>
         <ContentContainer>
           <ScrollView
@@ -63,7 +59,6 @@ export default function MeasurementsWeight() {
       <ButtomWrapper>
         <Button
           title="Passo anterior"
-          width={45}
           variant="secondary"
           onPress={() =>
             navigation.canGoBack()
@@ -73,7 +68,6 @@ export default function MeasurementsWeight() {
         />
         <Button
           title="Proximo passo"
-          width={45}
           onPress={() => navigation.navigate('MeasurementsHeight')}
         />
       </ButtomWrapper>

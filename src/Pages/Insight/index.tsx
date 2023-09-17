@@ -1,6 +1,6 @@
-import {View, Text} from 'react-native';
+import {View} from 'react-native';
 import React from 'react';
-import {Content, Title} from '../../Components';
+import {Content, Text} from '../../Components';
 
 export default function Insight() {
   return (
@@ -12,7 +12,7 @@ export default function Insight() {
             height: 250,
             backgroundColor: '#be0a0a',
           }}>
-          <Title>Grafico</Title>
+          <Text>Grafico</Text>
         </View>
         <View
           style={{
@@ -20,7 +20,7 @@ export default function Insight() {
             height: 50,
             backgroundColor: '#0abe0a',
           }}>
-          <Title>Mudar Grafico</Title>
+          <Text>Mudar Grafico</Text>
         </View>
       </View>
       <View
@@ -30,7 +30,7 @@ export default function Insight() {
           backgroundColor: '#999',
           marginVertical: 20,
         }}>
-        <Title>calorias</Title>
+        <Text>calorias</Text>
       </View>
       <View
         style={{

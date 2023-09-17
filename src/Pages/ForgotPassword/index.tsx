@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Content, Header, Input, Title} from '../../Components';
+import {Button, Content, Input, Text} from '../../Components';
 import {Container} from './styles';
 import {useNavigation} from '@react-navigation/native';
 
@@ -12,21 +12,20 @@ export default function ForgotPassword() {
 
   return (
     <Content>
-      <Header>
-        <Title size={25} weight="bold">
-          Esqueceu senha senha?
-        </Title>
-        <Title mt={10} color="GRAY">
-          Informe o endereço de e-mail associado a sua conta
-        </Title>
-      </Header>
+      <Text size={25} weight="bold">
+        Esqueceu senha senha?
+      </Text>
+      <Text mt={10} color="GRAY">
+        Informe o endereço de e-mail associado a sua conta
+      </Text>
+
       <Container>
         <Input label="Email" />
       </Container>
-      <Button onPress={goToOTPCode}>
-        <Title color="PRIMARY_CONTRAST" weight="bold">
+      <Button onPress={goToOTPCode} title="Enviar">
+        {/* <Text color="PRIMARY_CONTRAST" weight="bold">
           Enviar
-        </Title>
+        </Text> */}
       </Button>
     </Content>
   );
