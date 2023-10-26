@@ -3,7 +3,7 @@ import {Button, Content, Input, Text} from '../../Components';
 import {Container} from './styles';
 import {useNavigation} from '@react-navigation/native';
 
-export default function ForgotPassword() {
+export const ForgotPassWord = () => {
   const navigation = useNavigation();
 
   const goToOTPCode = () => {
@@ -12,21 +12,15 @@ export default function ForgotPassword() {
 
   return (
     <Content>
-      <Text size={25} weight="bold">
-        Esqueceu senha senha?
-      </Text>
-      <Text mt={10} color="GRAY">
+      <Text bold>Esqueceu senha senha?</Text>
+      <Text color="GRAY">
         Informe o endereço de e-mail associado a sua conta
       </Text>
 
       <Container>
         <Input label="Email" />
       </Container>
-      <Button onPress={goToOTPCode} title="Enviar">
-        {/* <Text color="PRIMARY_CONTRAST" weight="bold">
-          Enviar
-        </Text> */}
-      </Button>
+      <Button onPress={goToOTPCode} title="Enviar" />
     </Content>
   );
-}
+};

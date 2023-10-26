@@ -32,7 +32,7 @@ type DataProps = {
   id: number;
 };
 
-export default function OnBoarding() {
+export const OnBoarding = () => {
   const scrollY = useRef(new Animated.Value(0)).current;
 
   const handleScroll = Animated.event(
@@ -50,7 +50,7 @@ export default function OnBoarding() {
           }}
           source={item.photo}
         />
-        <Text mt={10}>texto</Text>
+        <Text>texto</Text>
       </Animated.View>
     );
   };
@@ -68,15 +68,11 @@ export default function OnBoarding() {
         pagingEnabled
         showsHorizontalScrollIndicator={false}
       />
-      <Text mb={10}>Passo 1 de 3</Text>
-      <Button>
-        <Text weight="bold" color="PRIMARY_CONTRAST">
-          Prosseguir
-        </Text>
-      </Button>
+      <Text>Passo 1 de 3</Text>
+      <Button title="Prosseguir"></Button>
     </Content>
   );
-}
+};
 
 const styles = StyleSheet.create({
   conteiner: {

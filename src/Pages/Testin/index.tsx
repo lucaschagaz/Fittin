@@ -31,7 +31,7 @@ const shape = [
   },
 ];
 
-export default function Testing() {
+export const Testing = () => {
   const scroolX = useRef(new Animated.Value(0)).current;
 
   const handleScrollX = () => {};
@@ -55,7 +55,7 @@ export default function Testing() {
       />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   box: {

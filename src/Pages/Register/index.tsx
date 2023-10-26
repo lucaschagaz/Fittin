@@ -14,7 +14,7 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {useNavigation} from '@react-navigation/native';
 
-export default function Register() {
+export const Register = () => {
   const navigation = useNavigation();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -23,7 +23,7 @@ export default function Register() {
 
   return (
     <Content>
-      <Text size={25} color="BLACK" weight="bold">
+      <Text color="BLACK" bold>
         Login
       </Text>
       <InputConteiner>
@@ -47,33 +47,31 @@ export default function Register() {
         />
       </InputConteiner>
       <Footer>
-        <Button>
-          <Text size={20} weight="bold" color="PRIMARY_CONTRAST">
-            Registar-se
-          </Text>
-        </Button>
+        <Button title="Registar-se" />
         <Box>
           <Line style={{marginRight: 5}} />
-          <Text size={14}>Ou faça login com</Text>
+          <Text> Ou faça login com</Text>
           <Line style={{marginLeft: 5}} />
         </Box>
         <LoginSocialContainer>
           <LoginSocialBox>
-            <IconLogin source={require('../../assets/icons/google-logo.png')} />
+            <IconLogin
+              source={require('../../assets/images/google-logo.png')}
+            />
           </LoginSocialBox>
           <LoginSocialBox>
-            <IconLogin source={require('../../assets/icons/facebook-48.png')} />
+            <IconLogin
+              source={require('../../assets/images/facebook-48.png')}
+            />
           </LoginSocialBox>
         </LoginSocialContainer>
-        <Text size={16} color="GRAY" mb={5}>
-          Já possui conta?
-        </Text>
+        <Text color="GRAY">Já possui conta?</Text>
         <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-          <Text color="PRIMARY" weight="bold">
+          <Text color="PRIMARY" bold>
             Fazer login
           </Text>
         </TouchableOpacity>
       </Footer>
     </Content>
   );
-}
+};

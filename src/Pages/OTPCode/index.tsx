@@ -1,15 +1,17 @@
 import React, {useEffect, useRef, useState} from 'react';
+import {TextInput, TouchableOpacity} from 'react-native';
+
 import {Button, Content, Text} from '../../Components';
 import {Container, Input, InputContainer} from './styles';
-import {TouchableOpacity} from 'react-native';
+import {Icon} from '../../Components/Icon';
 
-export default function OTPCode() {
+export const OTPCode = () => {
   const [otpvalues, setOtpValues] = useState({1: '', 2: '', 3: '', 4: ''});
 
-  const firstRef = useRef();
-  const secondRef = useRef();
-  const thirdRef = useRef();
-  const fouthRef = useRef();
+  const firstRef = useRef<TextInput>(null);
+  const secondRef = useRef<TextInput>(null);
+  const thirdRef = useRef<TextInput>(null);
+  const fouthRef = useRef<TextInput>(null);
 
   useEffect(() => {
     console.log(otpvalues);
@@ -17,10 +19,8 @@ export default function OTPCode() {
 
   return (
     <Content>
-      <Text size={25} weight="bold">
-        Verificação OTP
-      </Text>
-      <Text mt={10} color="GRAY">
+      <Text bold>Verificação OTP</Text>
+      <Text color="GRAY">
         Check sua caixa de mensagem (SMS) nossa equipe enviou um codigo para o
         numero +89 999** ****999
       </Text>
@@ -69,18 +69,16 @@ export default function OTPCode() {
             }}
           />
         </InputContainer>
-        <Text color="GRAY" mb={10}>
-          Não recebeu o codigo?
-        </Text>
+        <Text color="GRAY">Não recebeu o codigo?</Text>
         <TouchableOpacity>
           <Text color="SENCONDARY">Reenviar o codigo</Text>
         </TouchableOpacity>
       </Container>
-      <Button title="Enviar">
-        {/* <Text color="PRIMARY_CONTRAST" weight="bold">
+      <Button title="Enviar" rightElement={<Icon name="rightArrow" />}>
+        {/* <Text color="PRIMARY_CONTRAST" bold>
           Enviar
         </Text> */}
       </Button>
     </Content>
   );
-}
+};

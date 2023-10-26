@@ -1,41 +1,20 @@
-import Login from './Login';
-import OnBoarding from './OnBoarding';
-import Testing from './Testin';
-import ForgotPassWord from './ForgotPassword';
-import Register from './Register';
-import OTPCode from './OTPCode';
-import ChooseSex from './UserData/ChooseSex';
-import MeasurementsHeight from './UserData/MeasurementsHeight';
-import MeasurementsWeight from './UserData/MeasurementsWeight';
-import Age from './UserData/Age';
-import Goal from './UserData/Goal';
-import Diet from './UserData/Diet';
-import Foods from './UserData/Foods';
-import YourDeit from './YourDiet';
-import WorkOuts from './WorkOuts';
-import Profile from './Profile';
-import Insight from './Insight';
-import Home from './Home/Home';
-
-export {
-  Home,
-  Login,
-  OnBoarding,
-  Testing,
-  ForgotPassWord,
-  OTPCode,
-  Register,
-  ChooseSex,
-  MeasurementsHeight,
-  MeasurementsWeight,
-  Age,
-  Diet,
-  Goal,
-  Foods,
-  YourDeit,
-  WorkOuts,
-  Profile,
-  Insight,
-};
-
-export {Experience} from './UserData/Experiance';
+export {Login} from './Login';
+export {OnBoarding} from './OnBoarding';
+export {Testing} from './Testin';
+export {ForgotPassWord} from './ForgotPassword';
+export {Register} from './Register';
+export {OTPCode} from './OTPCode';
+export {ChooseSex} from './UserData/Sex';
+export {MeasurementsHeight} from './UserData/MeasurementsHeight';
+export {MeasurementsWeight} from './UserData/MeasurementsWeight';
+export {Age} from './UserData/Age';
+export {Goal} from './UserData/Goal';
+export {Diet} from './UserData/Diet';
+export {Foods} from './UserData/Foods';
+export {Deits} from './Diets';
+export {WorkOuts} from './WorkOuts';
+export {Profile} from './Profile';
+export {Insight} from './Insight';
+export {Home} from './Home/Home';
+export {Experience} from './UserData/Experience';
+export {CreateWorkout} from './CreateWorkout';

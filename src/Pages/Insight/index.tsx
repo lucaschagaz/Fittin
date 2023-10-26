@@ -2,7 +2,7 @@ import {View} from 'react-native';
 import React from 'react';
 import {Content, Text} from '../../Components';
 
-export default function Insight() {
+export const Insight = () => {
   return (
     <Content>
       <View style={{width: '100%', height: 300, backgroundColor: '#999'}}>
@@ -62,4 +62,4 @@ export default function Insight() {
       </View>
     </Content>
   );
-}
+};

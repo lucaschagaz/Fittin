@@ -70,7 +70,7 @@ export const Line = styled.View`
 `;
 
 export const Box = styled.View`
-  flex-direction: row
-  align-items: center
-  margin: 20px 0px
+  flex-direction: row;
+  align-items: center;
+  margin: 20px 0px;
 `;

@@ -1,4 +1,4 @@
-import {Image, TouchableOpacity, View} from 'react-native';
+import {TouchableOpacity} from 'react-native';
 import React, {useState} from 'react';
 
 import {useNavigation} from '@react-navigation/native';
@@ -18,7 +18,7 @@ import {
   TextConteiner,
 } from './styles';
 
-export default function Login() {
+export const Login = () => {
   const [select, setSelect] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -34,7 +34,7 @@ export default function Login() {
 
   return (
     <Content>
-      <Text size={25} color="BLACK" weight="bold">
+      <Text color="BLACK" bold>
         Login
       </Text>
       <InputConteiner>
@@ -46,7 +46,7 @@ export default function Login() {
             <Text color="GRAY">me-lembre</Text>
           </RemenberContainer>
           <RemenberContainer
-            onPress={() => navigation.navigate('ForgotPassword')}>
+            onPress={() => navigation.navigate('ForgotPassWord')}>
             <Text color="GRAY">Esqueci minha senha!</Text>
           </RemenberContainer>
         </PassWordConteiner>
@@ -57,33 +57,31 @@ export default function Login() {
         </Text>
       </TextConteiner>
       <Footer>
-        <Button onPress={handleLogin} isLoading={loading}>
-          <Text size={20} weight="bold" color="PRIMARY_CONTRAST">
-            Entrar
-          </Text>
-        </Button>
+        <Button title="Entrar" onPress={handleLogin} isLoading={loading} />
         <Box>
           <Line style={{marginRight: 5}} />
-          <Text size={14}>Ou faça login com</Text>
+          <Text>Ou faça login com</Text>
           <Line style={{marginLeft: 5}} />
         </Box>
         <LoginSocialContainer>
           <LoginSocialBox>
-            <IconLogin source={require('../../assets/icons/google-logo.png')} />
+            <IconLogin
+              source={require('../../assets/images/google-logo.png')}
+            />
           </LoginSocialBox>
           <LoginSocialBox>
-            <IconLogin source={require('../../assets/icons/facebook-48.png')} />
+            <IconLogin
+              source={require('../../assets/images/facebook-48.png')}
+            />
           </LoginSocialBox>
         </LoginSocialContainer>
-        <Text size={16} color="GRAY" mb={5}>
-          Não possui conta ainda?
-        </Text>
+        <Text color="GRAY">Não possui conta ainda?</Text>
         <TouchableOpacity onPress={() => navigation.navigate('Register')}>
-          <Text color="PRIMARY" weight="bold">
+          <Text color="PRIMARY" bold>
             Cadastrar-se
           </Text>
         </TouchableOpacity>
       </Footer>
     </Content>
   );
-}
+};
