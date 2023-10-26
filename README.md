@@ -1,4 +1,4 @@
-# AINDA EM CONTRUÇÃO
+# AINDA EM CONSTRUÇÃO
 # Fittin - Aplicativo de Fitness para Treinos Personalizados
 
 O Fittin é um aplicativo móvel desenvolvido em React Native que permite aos usuários criar, personalizar e acompanhar treinos físicos. Este aplicativo é projetado para ajudar os usuários a atingirem seus objetivos de fitness, fornecendo ferramentas para criar treinos personalizados e registrar o progresso.
