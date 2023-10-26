@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
-import {Button, Content, Text} from '../../../Components';
-import {ButtomWrapper, FoodsWrapper} from '../styles';
+import {Box, Button, Content, Text} from '../../../Components';
+import {FoodsWrapper} from '../styles';
 import {foods} from '../../../Utils/Mocks/Variabels';
 import {useNavigation} from '@react-navigation/native';
 import {TouchableOpacity} from 'react-native';
+import {Icon} from '../../../Components/Icon';
 
-export default function Foods() {
+export const Foods = () => {
   /* LIDAR COM TECLADO NESSA PARTE! USAR UMA LIB */
 
   const navigation = useNavigation();
@@ -24,11 +25,20 @@ export default function Foods() {
 
   return (
     <Content>
-      <Text font="Heading_one">Alimentos que não gosta.</Text>
-      <Text font="Heading_three" color="GRAY">
+      <Text font="Heading_one" style={{marginBottom: 10}}>
+        Alimentos que não gosta.
+      </Text>
+      <Text font="Button_Text" color="GRAY" style={{textAlign: 'center'}}>
         Quais alimentos não gostaria de ter em seu plano alimentar
       </Text>
-      <FoodsWrapper>
+      <Box
+        style={{
+          flex: 1,
+          flexWrap: 'wrap',
+          flexDirection: 'row',
+          alignContent: 'center',
+          gap: 12,
+        }}>
         {foods.map(food => (
           <TouchableOpacity
             key={food}
@@ -52,11 +62,12 @@ export default function Foods() {
             </Text>
           </TouchableOpacity>
         ))}
-      </FoodsWrapper>
-      <ButtomWrapper>
+      </Box>
+      <Box style={{justifyContent: 'space-between', flexDirection: 'row'}}>
         <Button
-          title="Passo anterior"
-          variant="secondary"
+          title="Voltar"
+          leftElement={<Icon name="leftArrow" color="GRAY" />}
+          ButtonVariant="outLine"
           onPress={() =>
             navigation.canGoBack()
               ? navigation.goBack()
@@ -64,12 +75,15 @@ export default function Foods() {
           }
         />
         <Button
+          rightElement={<Icon name="rightArrow" />}
           title="Finalizar"
           disabled={selectdsFoods.length == 0 ? true : false}
           onPress={() => navigation.navigate('tabBar')}
-          variant={selectdsFoods.length === 0 ? 'disable_Button' : 'primary'}
+          ButtonVariant={
+            selectdsFoods.length === 0 ? 'disable_Button' : 'primary'
+          }
         />
-      </ButtomWrapper>
+      </Box>
     </Content>
   );
-}
+};

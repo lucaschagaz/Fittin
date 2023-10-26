@@ -2,16 +2,16 @@ import React, {useEffect, useRef} from 'react';
 import {View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
-import {Button, Content, Text} from '../../../Components';
-import {AgeBox, ButtomWrapper, Container} from '../styles';
+import {Button, Content, Text, Icon, Box} from '../../../Components';
+import {AgeBox, Container} from '../styles';
 import {
   ScrollView,
   NativeSyntheticEvent,
   NativeScrollEvent,
 } from 'react-native';
-import useMeasurements from '../../../hook/useMeasurements';
+import {useMeasurements} from '../../../hook/useMeasurements';
 
-export default function Age() {
+export const Age = () => {
   const navigation = useNavigation();
 
   const {value, renderMeasurement, measurements, setMeasurements} =
@@ -33,11 +33,13 @@ export default function Age() {
 
   return (
     <Content>
-      <Text font="Heading_one">Informe-nos sua Idade</Text>
-      <Text color="GRAY" font="Heading_three">
-        Dados necessarios para criação do seu plano personalizado
+      <Text font="Heading_one" style={{marginBottom: 10}}>
+        Informe-nos sua Idade
       </Text>
-      <Container>
+      <Text font="Button_Text" color="GRAY" style={{textAlign: 'center'}}>
+        usaremos para criação do seu plano personalizado
+      </Text>
+      <Box style={{flexDirection: 'column', flex: 1}}>
         <View style={{height: '80%'}}>
           <ScrollView
             contentContainerStyle={{
@@ -79,12 +81,13 @@ export default function Age() {
             ))}
           </ScrollView>
         </View>
-      </Container>
-      <ButtomWrapper>
+      </Box>
+      <Box style={{justifyContent: 'space-between', flexDirection: 'row'}}>
         <Button
-          title="Passo anterior"
-          width="medium-155"
-          variant="secondary"
+          title="Voltar"
+          width="medium"
+          leftElement={<Icon name="leftArrow" color="GRAY" />}
+          ButtonVariant="outLine"
           onPress={() =>
             navigation.canGoBack()
               ? navigation.goBack()
@@ -92,11 +95,12 @@ export default function Age() {
           }
         />
         <Button
-          title="Proximo passo"
-          width="medium-155"
+          title="Continuar"
+          width="medium"
+          rightElement={<Icon name="rightArrow" />}
           onPress={() => navigation.navigate('MeasurementsWeight')}
         />
-      </ButtomWrapper>
+      </Box>
     </Content>
   );
-}
+};

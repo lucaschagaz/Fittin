@@ -1,25 +1,27 @@
 import React, {useState} from 'react';
-import {Button, Content, Text} from '../../../Components';
-import {ButtomWrapper, Container} from '../styles';
 import {useNavigation} from '@react-navigation/native';
+
+import {Button, Content, Text, Icon, Box} from '../../../Components';
 import {Diets} from '../../../Utils/Mocks/Variabels';
 
-export default function Goal() {
+export const Diet = () => {
   const navigation = useNavigation();
 
   const [selectedDiet, setSelectedDiet] = useState('Dieta Cetogênica');
 
   return (
     <Content>
-      <Text font="Heading_one">Deseja seguir alguma Dieta?</Text>
-      <Text font="Heading_three" color="GRAY">
-        Dados necessarios para criação do seu plano personalizado
+      <Text font="Heading_one" style={{marginBottom: 10}}>
+        Deseja seguir alguma Dieta?
       </Text>
-      <Container>
+      <Text font="Button_Text" color="GRAY" style={{textAlign: 'center'}}>
+        iremos criar um plano baseado em sua escolha
+      </Text>
+      <Box style={{flex: 1}}>
         {Diets.map(diet => (
           <Button
             key={diet}
-            width="large-311"
+            width="large"
             bold={diet === selectedDiet ? true : false}
             style={{
               borderColor: selectedDiet === diet ? '#001eff' : 'transparent',
@@ -27,15 +29,16 @@ export default function Goal() {
               borderWidth: 2,
             }}
             title={diet}
-            variant="secondary"
+            ButtonVariant="outLine"
             onPress={() => setSelectedDiet(diet)}
           />
         ))}
-      </Container>
-      <ButtomWrapper>
+      </Box>
+      <Box style={{justifyContent: 'space-between', flexDirection: 'row'}}>
         <Button
-          title="Passo anterior"
-          variant="secondary"
+          title="Voltar"
+          ButtonVariant="outLine"
+          leftElement={<Icon name="leftArrow" color="GRAY" />}
           onPress={() =>
             navigation.canGoBack()
               ? navigation.goBack()
@@ -43,10 +46,11 @@ export default function Goal() {
           }
         />
         <Button
-          title="Proximo passo"
+          title="Continuar"
+          rightElement={<Icon name="rightArrow" />}
           onPress={() => navigation.navigate('Foods')}
         />
-      </ButtomWrapper>
+      </Box>
     </Content>
   );
-}
+};

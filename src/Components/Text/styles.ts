@@ -8,5 +8,4 @@ interface ITextProps {
 export const RNText = styled.Text<ITextProps>`
   color: ${({theme, color}) =>
     color ? theme.COLORS[color] : theme.COLORS.BLACK};
-  text-align: center;
 `;

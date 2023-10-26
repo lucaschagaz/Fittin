@@ -1,11 +1,6 @@
 import React, {useEffect} from 'react';
-import {Button, Content, Text} from '../../../Components';
-import {
-  Container,
-  MeasurementsValue,
-  ContentContainer,
-  ButtomWrapper,
-} from '../styles';
+import {Button, Content, Text, Box} from '../../../Components';
+import {MeasurementsValue, ContentContainer} from '../styles';
 import {useNavigation} from '@react-navigation/native';
 import {
   ScrollView,
@@ -13,9 +8,10 @@ import {
   NativeScrollEvent,
 } from 'react-native';
 
-import useMeasurements from '../../../hook/useMeasurements';
+import {useMeasurements} from '../../../hook/useMeasurements';
+import {Icon} from '../../../Components/Icon';
 
-export default function MeasurementsWeight() {
+export const MeasurementsWeight = () => {
   const navigation = useNavigation();
 
   const {renderMeasurement, renderPin, value, setMeasurements, measurements} =
@@ -27,39 +23,46 @@ export default function MeasurementsWeight() {
 
   const handleScroll = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
     const xx = e.nativeEvent.contentOffset.x;
-    const select = Math.ceil(xx / 16) + 40;
+    const select = Math.floor(xx / 16) + 40;
     setMeasurements(select);
   };
 
   return (
     <Content>
-      <Text font="Heading_one">Informe-nos seu Peso</Text>
-      <Text font="Heading_three" color="GRAY">
+      <Text font="Heading_one" style={{marginBottom: 10}}>
+        Informe-nos seu Peso
+      </Text>
+      <Text font="Button_Text" color="GRAY" style={{textAlign: 'center'}}>
         Esse dado estará disponivel para alteração
       </Text>
-      <Container>
-        <MeasurementsValue>
+      <Box style={{flex: 1}}>
+        <Box style={{flexDirection: 'row'}}>
           <Text font="Heading_two">{measurements}</Text>
-          <Text font="Heading_two" style={{marginLeft: 5}}>
+          <Text
+            font="Heading_three"
+            style={{paddingLeft: 5, alignSelf: 'flex-end'}}>
             kg
           </Text>
-        </MeasurementsValue>
-        <ContentContainer>
+        </Box>
+        <Box>
           <ScrollView
             horizontal
             showsHorizontalScrollIndicator={false}
-            contentContainerStyle={{paddingHorizontal: 16 * 10.5}}
+            contentContainerStyle={{
+              paddingHorizontal: 12 * 16,
+            }}
             snapToInterval={16}
             scrollEventThrottle={16}
             onScroll={handleScroll}>
             {value?.map(number => renderPin(number))}
           </ScrollView>
-        </ContentContainer>
-      </Container>
-      <ButtomWrapper>
+        </Box>
+      </Box>
+      <Box style={{justifyContent: 'space-between', flexDirection: 'row'}}>
         <Button
-          title="Passo anterior"
-          variant="secondary"
+          title="Voltar"
+          ButtonVariant="outLine"
+          leftElement={<Icon name="leftArrow" color="GRAY" />}
           onPress={() =>
             navigation.canGoBack()
               ? navigation.goBack()
@@ -67,10 +70,11 @@ export default function MeasurementsWeight() {
           }
         />
         <Button
-          title="Proximo passo"
+          title="Continuar"
+          rightElement={<Icon name="rightArrow" />}
           onPress={() => navigation.navigate('MeasurementsHeight')}
         />
-      </ButtomWrapper>
+      </Box>
     </Content>
   );
-}
+};

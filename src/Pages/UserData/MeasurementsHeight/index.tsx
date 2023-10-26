@@ -1,15 +1,15 @@
 import React, {useEffect} from 'react';
-import {Button, Content, Text} from '../../../Components';
-import {ButtomWrapper, Container, ContentContainer} from '../styles';
+import {Box, Button, Content, Text} from '../../../Components';
 import {useNavigation} from '@react-navigation/native';
 import {
   ScrollView,
   NativeSyntheticEvent,
   NativeScrollEvent,
 } from 'react-native';
-import useMeasurements from '../../../hook/useMeasurements';
+import {useMeasurements} from '../../../hook/useMeasurements';
+import {Icon} from '../../../Components/Icon';
 
-export default function MeasurementsHeight() {
+export const MeasurementsHeight = () => {
   const navigation = useNavigation();
 
   const {measurements, renderMeasurement, value, setMeasurements, renderPin} =
@@ -21,65 +21,44 @@ export default function MeasurementsHeight() {
 
   const handleScroll = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
     const xx = e.nativeEvent.contentOffset.x;
-    const select = Math.ceil(xx / 16) + 100;
+    const select = Math.floor(xx / 16) + 100;
     setMeasurements(select);
-  };
-
-  const handleMeasuremants = () => {
-    if (measurements == 100) {
-      return 1 + 'm';
-    } else if (measurements == 200) {
-      return 2 + 'm';
-    } else if (measurements == 300) {
-      return 3 + 'm';
-    } else {
-      const digitosSeparados = measurements.toString().split('').map(Number);
-      if (digitosSeparados[0] == 1) {
-        return (
-          digitosSeparados[0] +
-          'm ' +
-          digitosSeparados[1] +
-          digitosSeparados[2] +
-          'cm'
-        );
-      } else {
-        return (
-          digitosSeparados[0] +
-          'm ' +
-          digitosSeparados[1] +
-          digitosSeparados[2] +
-          'cm'
-        );
-      }
-    }
   };
 
   return (
     <Content>
-      <Text font="Heading_one">Informe-nos sua Altura</Text>
-      <Text font="Heading_three" color="GRAY">
+      <Text font="Heading_one" style={{marginBottom: 10}}>
+        Informe-nos sua Altura
+      </Text>
+      <Text font="Button_Text" color="GRAY" style={{textAlign: 'center'}}>
         Esse dado estará disponivel para alteração
       </Text>
-      <Container>
-        <Text style={{fontSize: 30}} font="Heading_two">
-          {measurements} cm
-        </Text>
-        <ContentContainer>
+      <Box style={{flex: 1}}>
+        <Box style={{flexDirection: 'row'}}>
+          <Text font="Heading_two">{measurements}</Text>
+          <Text
+            style={{paddingLeft: 5, alignSelf: 'flex-end'}}
+            font="Heading_three">
+            cm
+          </Text>
+        </Box>
+        <Box>
           <ScrollView
             horizontal
             showsHorizontalScrollIndicator={false}
-            contentContainerStyle={{paddingHorizontal: 16 * 10.5}}
+            contentContainerStyle={{paddingHorizontal: 12 * 16}}
             snapToInterval={16}
             scrollEventThrottle={16}
             onScroll={handleScroll}>
             {value?.map(number => renderPin(number))}
           </ScrollView>
-        </ContentContainer>
-      </Container>
-      <ButtomWrapper>
+        </Box>
+      </Box>
+      <Box style={{justifyContent: 'space-between', flexDirection: 'row'}}>
         <Button
-          title="Passo anterior"
-          variant="secondary"
+          title="Voltar"
+          leftElement={<Icon name="leftArrow" color="GRAY" />}
+          ButtonVariant="outLine"
           onPress={() =>
             navigation.canGoBack()
               ? navigation.goBack()
@@ -87,10 +66,11 @@ export default function MeasurementsHeight() {
           }
         />
         <Button
-          title="Proximo passo"
-          onPress={() => navigation.navigate('Goal')}
+          title="Continuar"
+          rightElement={<Icon name="rightArrow" />}
+          onPress={() => navigation.navigate('Experience')}
         />
-      </ButtomWrapper>
+      </Box>
     </Content>
   );
-}
+};

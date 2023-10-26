@@ -5,7 +5,7 @@ import {ThemeColors} from '../../Styles/Theme/ligth';
 
 interface ITextProps extends TextProps {
   color?: keyof ThemeColors;
-  children: string;
+  children: string | number;
   font?: fontFamily;
   bold?: boolean;
 }
@@ -20,12 +20,12 @@ type fontFamily =
   | 'Button_Text';
 
 const $fontStyle: Record<fontFamily, TextStyle> = {
-  Heading_one: {fontSize: 26, lineHeight: 60}, // sempre bold
-  Heading_two: {fontSize: 22, lineHeight: 32},
-  Heading_three: {fontSize: 19, lineHeight: 24},
-  Paragraph: {fontSize: 19, lineHeight: 24},
+  Heading_one: {fontSize: 26, lineHeight: 30}, // sempre bold
+  Heading_two: {fontSize: 22, lineHeight: 30},
+  Heading_three: {fontSize: 20, lineHeight: 24},
+  Paragraph: {fontSize: 18, lineHeight: 24},
   SubTitle_one: {fontSize: 16, lineHeight: 24},
-  SubTitle_two: {fontSize: 12, lineHeight: 24},
+  SubTitle_two: {fontSize: 14, lineHeight: 24},
   Button_Text: {fontSize: 18}, // sempre bold
 };
 
@@ -53,33 +53,32 @@ export const Text = ({
 
     switch (familyVariant) {
       case 'Heading_one':
-        return $fontFamily.black;
-        break;
+        return $fontFamily.bold;
+
       case 'Heading_two':
         return $fontFamily.bold;
-        break;
+
       case 'Heading_three':
         return $fontFamily.medium;
-        break;
+
       case 'Button_Text':
         return $fontFamily.bold;
-        break;
+
       case 'SubTitle_one':
         return $fontFamily.medium;
-        break;
+
       case 'SubTitle_two':
         return $fontFamily.medium;
-        break;
+
       default:
         return $fontFamily.regular;
-        break;
     }
   };
 
   return (
     <RNText
       color={color}
-      style={[style, $fontUsed, {fontFamily: getFontFamily(font, bold)}]}>
+      style={[$fontUsed, {fontFamily: getFontFamily(font, bold)}, style]}>
       {children}
     </RNText>
   );

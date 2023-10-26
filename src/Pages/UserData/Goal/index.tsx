@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import {Button, Content, Text} from '../../../Components';
-import {ButtomWrapper, Container} from '../styles';
+import {Box, Button, Content, Text} from '../../../Components';
 import {useNavigation} from '@react-navigation/native';
+import {Icon} from '../../../Components/Icon';
 
-export default function Goal() {
+export const Goal = () => {
   const navigation = useNavigation();
 
   type IGoal = 'Dieta e Treinos' | 'Dieta' | 'Treinos';
@@ -19,13 +19,15 @@ export default function Goal() {
   };
   return (
     <Content>
-      <Text font="Heading_one">O App sera usado para?</Text>
-      <Text font="Heading_three" color="GRAY">
-        Dados necessarios para criação do seu plano personalizado
+      <Text font="Heading_one" style={{marginBottom: 10}}>
+        Seu foco principal é?
       </Text>
-      <Container>
+      <Text font="Button_Text" color="GRAY" style={{textAlign: 'center'}}>
+        usaremos para criação do seu plano personalizado
+      </Text>
+      <Box style={{flex: 1}}>
         <Button
-          width="large-311"
+          width="large"
           style={{
             borderColor: goal === 'Dieta' ? '#001eff' : 'transparent',
             marginBottom: 25,
@@ -33,11 +35,11 @@ export default function Goal() {
           }}
           bold={goal == 'Dieta' ? true : false}
           title="Dieta"
-          variant="secondary"
+          ButtonVariant="outLine"
           onPress={() => setGoal('Dieta')}
         />
         <Button
-          width="large-311"
+          width="large"
           style={{
             borderColor: goal === 'Treinos' ? '#001eff' : 'transparent',
             marginBottom: 25,
@@ -45,11 +47,11 @@ export default function Goal() {
           }}
           bold={goal == 'Treinos' ? true : false}
           title="Treinos"
-          variant="secondary"
+          ButtonVariant="outLine"
           onPress={() => setGoal('Treinos')}
         />
         <Button
-          width="large-311"
+          width="large"
           style={{
             borderColor: goal === 'Dieta e Treinos' ? '#001eff' : 'transparent',
             marginBottom: 25,
@@ -57,14 +59,15 @@ export default function Goal() {
           }}
           bold={goal == 'Dieta e Treinos' ? true : false}
           title="Dieta e Treinos"
-          variant="secondary"
+          ButtonVariant="outLine"
           onPress={() => setGoal('Dieta e Treinos')}
         />
-      </Container>
-      <ButtomWrapper>
+      </Box>
+      <Box style={{justifyContent: 'space-between', flexDirection: 'row'}}>
         <Button
-          title="Passo anterior"
-          variant="secondary"
+          title="Voltar"
+          ButtonVariant="outLine"
+          leftElement={<Icon name="leftArrow" color="GRAY" />}
           onPress={() =>
             navigation.canGoBack()
               ? navigation.goBack()
@@ -72,10 +75,11 @@ export default function Goal() {
           }
         />
         <Button
-          title={goal == 'Treinos' ? 'Finzalizar' : 'Proximo Passo'}
+          rightElement={<Icon name="rightArrow" />}
+          title={goal === 'Treinos' ? 'Finzalizar' : 'Continuar'}
           onPress={chooseGoal}
         />
-      </ButtomWrapper>
+      </Box>
     </Content>
   );
-}
+};
