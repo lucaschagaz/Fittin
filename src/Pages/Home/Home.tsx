@@ -1,44 +1,70 @@
-import React from 'react';
-import {Button, Content, StipCalendar, Text} from '../../Components';
+import React, {useState} from 'react';
+import {Box, Button, Content, StipCalendar, Text} from '../../Components';
 import {
   ImageBackgroud,
   TagWorkoutInformation,
   WorkoutHomeTitle,
   WorkoutHomeHeader,
+  WorkoutEmpty,
 } from './styles';
-import {View} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
-export default function Home() {
-  // dia da semana
-
+export const Home = () => {
   // Data minima vai ser o dia que o usuario criou a conta
+
+  const [customWorkout, setCustomWorkout] = useState(true);
+
+  const navigation = useNavigation();
+
+  const handleWorkOutPlan = () => {
+    navigation.navigate('Workout');
+    setCustomWorkout(false);
+  };
+
   return (
     <Content>
       <StipCalendar style={{elevation: 5}} />
-      <ImageBackgroud
-        resizeMode="cover"
-        borderRadius={20}
-        source={require('../../assets/background/arms.jpg')}>
-        <WorkoutHomeHeader>
-          <TagWorkoutInformation>
-            <Text color="PRIMARY_CONTRAST">Ver treino</Text>
-          </TagWorkoutInformation>
-          <TagWorkoutInformation>
-            <Text color="PRIMARY_CONTRAST">5 exercicios</Text>
-          </TagWorkoutInformation>
-        </WorkoutHomeHeader>
-        <WorkoutHomeTitle>
-          <Text font="Heading_two" color="PRIMARY_CONTRAST">
-            Treino de Hoje:
+      {customWorkout ? (
+        <WorkoutEmpty style={{elevation: 10}}>
+          <Text color="PRIMARY" font="Heading_two">
+            Crie seu Treino personalizado
           </Text>
-          <Text
-            style={{paddingLeft: 3}}
-            font="Heading_two"
-            color="PRIMARY_CONTRAST">
-            Peito
-          </Text>
-        </WorkoutHomeTitle>
-      </ImageBackgroud>
+          <Text color="GRAY">Você optou por criar seus prorpio Treino</Text>
+          <Text color="GRAY">clique e crie seu treino semanal</Text>
+          <Button
+            ButtonVariant="outLine"
+            title="Criar treino"
+            width="large"
+            onPress={handleWorkOutPlan}
+          />
+        </WorkoutEmpty>
+      ) : (
+        <ImageBackgroud
+          resizeMode="cover"
+          borderRadius={20}
+          source={require('../../assets/background/arms.jpg')}>
+          <WorkoutHomeHeader>
+            <TagWorkoutInformation
+              onPress={() => navigation.navigate('Workout')}>
+              <Text color="PRIMARY_CONTRAST">Ver treino</Text>
+            </TagWorkoutInformation>
+            <TagWorkoutInformation>
+              <Text color="PRIMARY_CONTRAST">5 exercicios</Text>
+            </TagWorkoutInformation>
+          </WorkoutHomeHeader>
+          <WorkoutHomeTitle>
+            <Text font="Heading_two" color="PRIMARY_CONTRAST">
+              Treino de Hoje:
+            </Text>
+            <Text
+              style={{paddingLeft: 3}}
+              font="Heading_two"
+              color="PRIMARY_CONTRAST">
+              Peito
+            </Text>
+          </WorkoutHomeTitle>
+        </ImageBackgroud>
+      )}
     </Content>
   );
-}
+};

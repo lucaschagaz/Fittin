@@ -8,6 +8,17 @@ export const ImageBackgroud = styled.ImageBackground`
   justify-content: space-between;
 `;
 
+export const WorkoutEmpty = styled.View`
+  width: 100%;
+  border-radius: 15px;
+  height: 200px;
+  margin-top: 30px;
+  align-items: center;
+  padding: 0px 10px;
+  justify-content: space-evenly;
+  background-color: ${({theme}) => theme.COLORS.PRIMARY_CONTRAST};
+`;
+
 export const WorkoutHomeHeader = styled.View`
   width: 100%;
   padding: 10px;
@@ -18,13 +29,12 @@ export const WorkoutHomeHeader = styled.View`
 
 export const WorkoutHomeTitle = styled.View`
   padding: 5px 10px;
-  align-self: flex-start;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   margin-bottom: 15px;
   margin-left: 10px;
-  border-color: ${({theme}) => theme.COLORS.GRAYDARK};
-  border-width: 1px;
-  background-color: ${({theme}) => theme.COLORS.BACKGROUND_TRANSPARENT};
+  border-bottom-width: 3px;
+  border-bottom-color: ${({theme}) => theme.COLORS.GRAYDARK};
+  /* background-color: ${({theme}) => theme.COLORS.BACKGROUND_TRANSPARENT}; */
   flex-direction: row;
 `;
 
