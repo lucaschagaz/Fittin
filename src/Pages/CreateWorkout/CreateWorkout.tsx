@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
-import {Box, Button, Content, Icon, Text} from '../../Components';
-import {TouchableOpacity} from 'react-native';
+import {Box, Button, Content, Text} from '../../Components';
 import {useNavigation} from '@react-navigation/native';
 import {RootScreenNavigationProp} from '../../@types/navigation';
 import {Picker} from '@react-native-picker/picker';
@@ -9,10 +8,10 @@ import {useTheme} from 'styled-components';
 import {execicios} from '../../Utils/Mocks/Variabels';
 
 export const CreateWorkout = () => {
-  const [selectedLanguage, setSelectedLanguage] = useState(
-    'Peito (Músculos Peitorais)',
-  );
-  const [selectedDay, setSelectedDay] = useState('Segunda-feira');
+  const [selected, setSelected] = useState({
+    dia: 'Segunda-feira',
+    grup: 'Peito',
+  });
 
   const {COLORS} = useTheme();
   const navigation = useNavigation<RootScreenNavigationProp>();
@@ -25,19 +24,6 @@ export const CreateWorkout = () => {
     {dia: 'Quinta-feira', treino: 'dia de descanso'},
     {dia: 'Sexta-feira', treino: 'dia de descanso'},
     {dia: 'Sabado', treino: 'dia de descanso'},
-  ];
-
-  const workoutGroupList = [
-    'Peito (Músculos Peitorais)',
-    'Costas (Músculos Dorsais)',
-    'Ombros (músculos deltoides)',
-    'Bíceps',
-    'Tríceps',
-    'Quadríceps',
-    'posterior de perna',
-    'Panturrilhas',
-    'Abdômen',
-    'Lombar',
   ];
 
   const exercicios = Object.keys(execicios);
@@ -55,8 +41,10 @@ export const CreateWorkout = () => {
         <Text font="Heading_three">Grupo muscular</Text>
         <Picker
           style={{width: '100%', marginTop: 10}}
-          selectedValue={selectedLanguage}
-          onValueChange={itemValue => setSelectedLanguage(itemValue)}>
+          selectedValue={selected.grup}
+          onValueChange={itemValue =>
+            setSelected(prev => ({...prev, grup: itemValue}))
+          }>
           {exercicios.map(group => (
             <Picker.Item label={group} value={group} />
           ))}
@@ -79,10 +67,12 @@ export const CreateWorkout = () => {
               alignItems: 'center',
             }}>
             <CheckBox
-              onPress={() => setSelectedDay(Workouts.dia)}
+              onPress={() =>
+                setSelected(prev => ({...prev, dia: Workouts.dia}))
+              }
               style={{
                 backgroundColor:
-                  selectedDay === Workouts.dia
+                  selected.dia === Workouts.dia
                     ? COLORS.PRIMARY_100
                     : COLORS.GRAY_100,
               }}
@@ -92,7 +82,12 @@ export const CreateWorkout = () => {
         ))}
       </Box>
       <Button
-        onPress={() => navigation.navigate('CreateWorkout')}
+        onPress={() =>
+          navigation.navigate('CreateWorkoutByGroup', {
+            group: selected.grup,
+            day: selected.dia,
+          })
+        }
         title="Escolher exercicios"
         width="large"
         style={{marginTop: 10}}
