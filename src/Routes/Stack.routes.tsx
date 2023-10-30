@@ -13,25 +13,26 @@ import {
   Goal,
   Diet,
   Foods,
-  Home,
   Experience,
+  CreateWorkout,
 } from '../Pages';
-import Tabroutes from './BottomTab.routes';
-const Stack = createNativeStackNavigator();
+import {Tabroutes} from './BottomTab.routes';
+import {AuthNavigatorParamList} from '../@types/navigation';
+import {CreateExerciseByGruop} from '../Pages/CreateExerciseByGruop/CreateExerciseByGruop';
 
-export default function Stackroutes() {
+const Stack = createNativeStackNavigator<AuthNavigatorParamList>();
+
+export const Stackroutes = () => {
   const {Navigator, Screen} = Stack;
 
   const [logged, setLogged] = useState(false);
 
   return (
-    <Navigator
-      screenOptions={{headerShown: false}}
-      initialRouteName="ChooseSex">
+    <Navigator screenOptions={{headerShown: false}} initialRouteName="tabBar">
       <Screen name="OnBoarding" component={OnBoarding} />
       <Screen name="Login" component={Login} />
       <Screen name="Register" component={Register} />
-      <Screen name="ForgotPassword" component={ForgotPassWord} />
+      <Screen name="ForgotPassWord" component={ForgotPassWord} />
       <Screen name="OTPCode" component={OTPCode} />
       <Screen name="ChooseSex" component={ChooseSex} />
       <Screen name="MeasurementsHeight" component={MeasurementsHeight} />
@@ -42,10 +43,20 @@ export default function Stackroutes() {
       <Screen name="Diet" component={Diet} />
       <Screen name="Foods" component={Foods} />
       <Screen
+        name="CreateWorkout"
+        options={{headerShown: false}}
+        component={CreateWorkout}
+      />
+      <Screen
+        name="CreateWorkoutByGroup"
+        options={{headerShown: false}}
+        component={CreateExerciseByGruop}
+      />
+      <Screen
         name="tabBar"
         options={{headerShown: false}}
         component={Tabroutes}
       />
     </Navigator>
   );
-}
+};
