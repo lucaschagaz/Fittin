@@ -2,7 +2,7 @@ import {BottomTabNavigationProp} from '@react-navigation/bottom-tabs';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {execicios} from '../../Utils/Mocks/Variabels';
 
-type exercicesName = keyof typeof execicios;
+export type exercicesName = keyof typeof execicios;
 
 export type AuthNavigatorParamList = {
   OnBoarding: undefined;
