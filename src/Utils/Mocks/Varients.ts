@@ -1,7 +1,7 @@
 import {ViewStyle} from 'react-native';
 import {ThemeColors} from '../../Styles/Theme/ligth';
 
-export type variant = 'primary' | 'secondary' | 'disable_Button';
+export type variant = 'primary' | 'outLine' | 'disable_Button';
 
 type combineStyles = ViewStyle & {
   color: keyof ThemeColors;
@@ -22,7 +22,7 @@ export const variants: Record<variant, combineStyles> = {
     borderColor: 'TRANSPARENT',
     borderWidth: 0,
   },
-  secondary: {
+  outLine: {
     backgroundColor: 'TRANSPARENT',
     color: 'GRAY',
     borderColor: 'GRAY',
