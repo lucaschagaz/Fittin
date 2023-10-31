@@ -10,5 +10,7 @@ export const View = ({children, backgroundColor}: IComponentProps) => {
 };
 
 export const ScrollView = ({children, backgroundColor}: IComponentProps) => {
-  return <RNScrolView style={{backgroundColor}}>{children}</RNScrolView>;
+  return (
+    <RNScrolView style={{backgroundColor, flex: 1}}>{children}</RNScrolView>
+  );
 };
