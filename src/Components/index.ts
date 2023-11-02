@@ -5,3 +5,6 @@ export {Input} from './Input';
 export {TabIcon} from './TabIcon';
 export {Avatar} from './Avatar';
 export {StipCalendar} from './StripCalendar';
+export {ActivityIndicator} from './ActivityIndicator';
+export {Icon} from './Icon';
+export {Box} from './Box';
