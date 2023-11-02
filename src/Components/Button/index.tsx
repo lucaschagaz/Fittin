@@ -1,60 +1,58 @@
 import React from 'react';
-import {ActivityIndicator, TouchableOpacityProps} from 'react-native';
-import {Wrapper} from './styles';
-import {Text} from '../index';
+import {TouchableOpacityProps} from 'react-native';
+
+import {Text, ActivityIndicator} from '../index';
 import {variants, variant} from '../../Utils/Mocks/Varients';
+
+import {Wrapper} from './styles';
+import {Box} from '../Box';
 export interface IButtonProps extends TouchableOpacityProps {
   height?: 'small' | 'large';
-  width?: 'small-126' | 'medium-155' | 'large-311';
+  width?: 'small' | 'medium' | 'large';
   isLoading?: boolean;
-  variant?: variant;
+  ButtonVariant?: variant;
   title: string;
   bold?: boolean;
-  semiBold?: boolean;
+  leftElement?: React.ReactElement;
+  rightElement?: React.ReactElement;
 }
 
 export const Button = ({
-  width = 'medium-155',
+  width = 'medium',
   height = 'large',
-  variant = 'primary',
+  ButtonVariant = 'primary',
   bold = false,
-  semiBold = false,
-  children,
+  leftElement,
+  rightElement,
   title,
   isLoading,
   ...rest
 }: IButtonProps) => {
-  const variantUsed = variants[variant];
+  const variantUsed = variants[ButtonVariant];
 
-  const btnSize = () => {
-    if (width === 'large-311') {
-      return 311;
-    } else if (width === 'small-126') {
-      return 126;
-    } else {
-      return 155;
-    }
-  };
-
-  console.log(variantUsed);
+  const buttonSize = width === 'large' ? 100 : width === 'medium' ? 48 : 30;
 
   return (
     <Wrapper
-      width={btnSize()}
+      width={buttonSize}
       height={height}
       bg={variantUsed.backgroundColor}
       border={variantUsed.borderColor}
       borderWidth={variantUsed.borderWidth}
       {...rest}>
       {isLoading ? (
-        <ActivityIndicator size={25} color="#FFF" />
+        <ActivityIndicator />
       ) : (
-        <Text
-          bold={bold}
-          font={'Button_Text'}
-          color={bold ? 'BLACK' : variantUsed.color}>
-          {title}
-        </Text>
+        <Box style={{flexDirection: 'row'}}>
+          {leftElement && leftElement}
+          <Text
+            style={{marginHorizontal: 10}}
+            font={'Button_Text'}
+            color={bold ? 'BLACK' : variantUsed.color}>
+            {title}
+          </Text>
+          {rightElement && rightElement}
+        </Box>
       )}
     </Wrapper>
   );

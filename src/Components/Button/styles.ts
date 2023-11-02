@@ -1,5 +1,10 @@
 import styled from 'styled-components/native';
 import {ThemeColors} from '../../Styles/Theme/ligth';
+import {Dimensions} from 'react-native';
+
+const {width: WIDTH} = Dimensions.get('screen');
+
+const newWidth = Math.floor(WIDTH - 40);
 
 type IButtonProps = {
   width?: number;
@@ -10,7 +15,7 @@ type IButtonProps = {
 };
 
 export const Wrapper = styled.TouchableOpacity<IButtonProps>`
-  width: ${({width}) => (width ? width : 311)}px;
+  width: ${({width}) => (width ? width : newWidth)}%;
   height: ${({height}) => (height == 'large' ? 50 : 38)}px;
   background-color: ${({theme, bg}) =>
     bg ? theme.COLORS[bg] : theme.COLORS.PRIMARY};
