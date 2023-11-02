@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Box, Button, Content, StipCalendar, Text} from '../../Components';
+import {Button, Content, StipCalendar, Text} from '../../Components';
 import {
   ImageBackgroud,
   TagWorkoutInformation,
@@ -8,13 +8,14 @@ import {
   WorkoutEmpty,
 } from './styles';
 import {useNavigation} from '@react-navigation/native';
+import {TabBarScreenNavigationProp} from '../../@types/navigation';
 
 export const Home = () => {
   // Data minima vai ser o dia que o usuario criou a conta
 
   const [customWorkout, setCustomWorkout] = useState(true);
 
-  const navigation = useNavigation();
+  const navigation = useNavigation<TabBarScreenNavigationProp>();
 
   const handleWorkOutPlan = () => {
     navigation.navigate('Workout');
@@ -29,7 +30,7 @@ export const Home = () => {
           <Text color="PRIMARY" font="Heading_two">
             Crie seu Treino personalizado
           </Text>
-          <Text color="GRAY">Você optou por criar seus prorpio Treino</Text>
+          <Text color="GRAY">Você optou por criar seu prorpio reino</Text>
           <Text color="GRAY">clique e crie seu treino semanal</Text>
           <Button
             ButtonVariant="outLine"
