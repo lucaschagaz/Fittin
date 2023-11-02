@@ -1,17 +1,22 @@
 import React, {useState} from 'react';
 import {Box, Button, Content, Icon, Input, Text} from '../../Components';
 import {execicios} from '../../Utils/Mocks/Variabels';
-import {AuthNavigatorParamList} from '../../@types/navigation';
-import {RouteProp, useRoute} from '@react-navigation/native';
+import {
+  AuthNavigatorParamList,
+  TabBarScreenNavigationProp,
+} from '../../@types/navigation';
+import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {Image, ScrollView, ViewStyle} from 'react-native';
 import {AddButton} from './styled';
 import {useTheme} from 'styled-components';
 
-export const CreateExerciseByGruop = () => {
+export const ExerciseByGruop = () => {
   const {params} =
-    useRoute<RouteProp<AuthNavigatorParamList, 'CreateWorkoutByGroup'>>();
+    useRoute<RouteProp<AuthNavigatorParamList, 'ExerciseByGruop'>>();
 
   const {COLORS} = useTheme();
+
+  const navigation = useNavigation<TabBarScreenNavigationProp>();
 
   const [SelectedWorkout, setSelectedWorkout] = useState<string[]>([]);
   const [search, setSearch] = useState('');
@@ -23,7 +28,7 @@ export const CreateExerciseByGruop = () => {
 
   const remove = (item: string) => {
     setSelectedWorkout(
-      SelectedWorkout.filter(itemfiltered => itemfiltered != item),
+      SelectedWorkout.filter(itemfiltered => itemfiltered !== item),
     );
   };
 
@@ -38,7 +43,6 @@ export const CreateExerciseByGruop = () => {
       .filter(item => item.match(search));
 
     setSearchResult(workoutFinded);
-    console.log(searchResult, 'LISTA');
   };
 
   return (
@@ -55,18 +59,9 @@ export const CreateExerciseByGruop = () => {
         style={{marginVertical: 20}}
         showsHorizontalScrollIndicator={false}>
         {SelectedWorkout.map(item => (
-          <Box
-            style={{
-              flex: 1,
-              marginHorizontal: 10,
-            }}>
+          <Box key={item} style={$ChoosedExerciseBoxStyle}>
             <Box style={{alignItems: 'flex-end'}}>
-              <Icon
-                pressable
-                onPress={() => remove(item)}
-                name="plus"
-                size={15}
-              />
+              <Icon pressable onPress={() => remove(item)} name="x" size={15} />
             </Box>
             <Image
               style={{width: 70, height: 70, borderRadius: 70, marginBottom: 5}}
@@ -85,16 +80,12 @@ export const CreateExerciseByGruop = () => {
         {search.length > 0
           ? searchResult?.map(item => (
               <Box
+                key={item}
                 style={[
                   $WorkoutBoxStyleProps,
                   {backgroundColor: COLORS.PRIMARY_CONTRAST},
                 ]}>
-                <Box
-                  style={{
-                    flex: 1,
-                    flexDirection: 'row',
-                    justifyContent: 'flex-start',
-                  }}>
+                <Box style={$ExerciseNameBoxStyle}>
                   <Text font="Paragraph" bold>
                     {item}
                   </Text>
@@ -119,16 +110,12 @@ export const CreateExerciseByGruop = () => {
             ))
           : execicios[params.group]?.map(item => (
               <Box
+                key={item.nome}
                 style={[
                   $WorkoutBoxStyleProps,
                   {backgroundColor: COLORS.PRIMARY_CONTRAST},
                 ]}>
-                <Box
-                  style={{
-                    flex: 1,
-                    flexDirection: 'row',
-                    justifyContent: 'flex-start',
-                  }}>
+                <Box style={$ExerciseNameBoxStyle}>
                   <Text font="Paragraph" bold>
                     {item.nome}
                   </Text>
@@ -154,8 +141,13 @@ export const CreateExerciseByGruop = () => {
               </Box>
             ))}
       </ScrollView>
-      {SelectedWorkout.length > 3 && (
-        <Button width="large" title="Salvar treino" />
+      {SelectedWorkout.length > 1 && (
+        <Button
+          style={{marginTop: 20}}
+          width="large"
+          title="Salvar treino"
+          onPress={() => navigation.navigate('Workout')}
+        />
       )}
     </Content>
   );
@@ -169,4 +161,15 @@ const $WorkoutBoxStyleProps: ViewStyle = {
   paddingVertical: 15,
   paddingHorizontal: 10,
   justifyContent: 'space-between',
+};
+
+const $ExerciseNameBoxStyle: ViewStyle = {
+  flex: 1,
+  flexDirection: 'row',
+  justifyContent: 'flex-start',
+};
+
+const $ChoosedExerciseBoxStyle: ViewStyle = {
+  flex: 1,
+  marginHorizontal: 10,
 };

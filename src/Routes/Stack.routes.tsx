@@ -15,10 +15,10 @@ import {
   Foods,
   Experience,
   CreateWorkout,
+  ExerciseByGruop,
 } from '../Pages';
 import {Tabroutes} from './BottomTab.routes';
 import {AuthNavigatorParamList} from '../@types/navigation';
-import {CreateExerciseByGruop} from '../Pages/CreateExerciseByGruop/CreateExerciseByGruop';
 
 const Stack = createNativeStackNavigator<AuthNavigatorParamList>();
 
@@ -48,9 +48,9 @@ export const Stackroutes = () => {
         component={CreateWorkout}
       />
       <Screen
-        name="CreateWorkoutByGroup"
+        name="ExerciseByGruop"
         options={{headerShown: false}}
-        component={CreateExerciseByGruop}
+        component={ExerciseByGruop}
       />
       <Screen
         name="tabBar"

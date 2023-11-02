@@ -20,7 +20,7 @@ export type AuthNavigatorParamList = {
   Foods: undefined;
   tabBar: undefined;
   CreateWorkout: undefined;
-  CreateWorkoutByGroup: {group: exercicesName; day: string};
+  ExerciseByGruop: {group: exercicesName; day: string};
 };
 
 export type RootScreenNavigationProp =
