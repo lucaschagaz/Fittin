@@ -17,4 +17,5 @@ export {Profile} from './Profile';
 export {Insight} from './Insight';
 export {Home} from './Home/Home';
 export {Experience} from './UserData/Experience';
-export {CreateWorkout} from './CreateWorkout';
+export {CreateWorkout} from './CreateWorkout/CreateWorkout';
+export {ExerciseByGruop} from './ExerciseByGruop/ExerciseByGruop';
