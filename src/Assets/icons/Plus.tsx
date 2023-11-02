@@ -1,10 +1,17 @@
 import React from 'react';
 import {G, Path, Svg} from 'react-native-svg';
 import {IIconBaseProps} from '../../Components/Icon';
+import {useTheme} from 'styled-components';
 
-export const Plus = ({size = 25}: IIconBaseProps) => {
+export const Plus = ({size = 25, color = 'GRAY'}: IIconBaseProps) => {
+  const {COLORS} = useTheme();
   return (
-    <Svg id="Capa_1" width={size} height={size} viewBox="0 0 45.402 45.402">
+    <Svg
+      id="Capa_1"
+      width={size}
+      height={size}
+      viewBox="0 0 45.402 45.402"
+      fill={COLORS[color]}>
       <G>
         <Path
           d="M41.267,18.557H26.832V4.134C26.832,1.851,24.99,0,22.707,0c-2.283,0-4.124,1.851-4.124,4.135v14.432H4.141
