@@ -247,7 +247,7 @@ const execicios = {
     {nome: 'Salto com Peso', imagem: ''},
     {nome: 'Agachamento com Salto', imagem: ''},
   ],
-  posteriorPerna: [
+  "posterior de Perna": [
     {nome: 'Levantamento Terra (Deadlift)', imagem: ''},
     {nome: 'Curl de Pernas (Leg Curl)', imagem: ''},
     {nome: 'Stiff (Stiff-Leg Deadlift)', imagem: ''},
