@@ -1,11 +1,11 @@
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import Stackroutes from './Stack.routes';
+import {Stackroutes} from './Stack.routes';
 
-export default function Routes() {
+export const Routes = () => {
   return (
     <NavigationContainer>
       <Stackroutes />
     </NavigationContainer>
   );
-}
+};
