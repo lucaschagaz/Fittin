@@ -1,13 +1,17 @@
 import React from 'react';
-import {Dimensions, Text, View} from 'react-native';
+import {Dimensions} from 'react-native';
 import Calendar, {CalendarStripProps} from 'react-native-calendar-strip';
-import moment from 'moment';
+// import moment from 'moment';
 import 'moment/locale/pt-br';
+import {useTheme} from 'styled-components';
+// import {Avatar} from '../Avatar';
+// import {Text} from '../Text';
 
 interface IStripCalendarProps extends CalendarStripProps {}
 
 export const StipCalendar = ({...rest}: IStripCalendarProps) => {
   const {width} = Dimensions.get('screen');
+  const {COLORS} = useTheme();
 
   const locale = {
     name: 'fr',
@@ -62,46 +66,45 @@ export const StipCalendar = ({...rest}: IStripCalendarProps) => {
   };
 
   return (
-    <>
-      <Calendar
-        {...rest}
-        scrollable={true}
-        style={{
-          width: width * 0.98,
-          height: 100,
-          borderRadius: 15,
-        }}
-        rightSelector={[]}
-        leftSelector={[]}
-        locale={locale}
-        calendarHeaderStyle={{
-          alignSelf: 'flex-start',
-          paddingLeft: 20,
-          fontSize: 22,
-          color: '#010101',
-        }}
-        dateNumberStyle={{
-          color: '#999',
-          paddingBottom: 3,
-          marginBottom: 5,
-          paddingHorizontal: 3,
-          width: 30,
-        }}
-        dateNameStyle={{fontSize: 17, marginBottom: 8}}
-        highlightDateNumberStyle={{
-          color: 'white',
-          backgroundColor: '#0943d7',
-          borderRadius: 5,
-          paddingHorizontal: 3,
-          paddingBottom: 3,
-          marginBottom: 5,
-          width: 30,
-        }}
-        highlightDateNameStyle={{
-          fontSize: 17,
-          marginBottom: 8,
-        }}
-      />
-    </>
+    <Calendar
+      {...rest}
+      scrollable={true}
+      style={{
+        width: width * 0.9,
+        height: 100,
+        borderRadius: 5,
+        backgroundColor: COLORS.PRIMARY_CONTRAST,
+        elevation: 10,
+        // marginTop: 5,
+      }}
+      rightSelector={[]}
+      leftSelector={[]}
+      locale={locale}
+      calendarHeaderStyle={{
+        alignSelf: 'flex-start',
+        paddingLeft: 20,
+        fontSize: 20,
+        color: COLORS.BLACK,
+      }}
+      dateNumberStyle={{
+        color: COLORS.GRAY,
+        paddingBottom: 3,
+        paddingHorizontal: 3,
+        width: 30,
+      }}
+      dateNameStyle={{fontSize: 17, marginBottom: 8}}
+      highlightDateNumberStyle={{
+        color: 'white',
+        backgroundColor: COLORS.PRIMARY,
+        borderRadius: 5,
+        paddingHorizontal: 3,
+        marginBottom: 5,
+        width: 30,
+      }}
+      highlightDateNameStyle={{
+        fontSize: 17,
+        marginBottom: 8,
+      }}
+    />
   );
 };
