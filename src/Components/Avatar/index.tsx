@@ -1,27 +1,35 @@
 import React from 'react';
 import {Image, Wrapper} from './styles';
 import {TouchableOpacityProps} from 'react-native';
+import {ThemeColors} from '../../Styles/Theme/ligth';
 
 interface IAvatarProps extends TouchableOpacityProps {
   img?: string;
+  size?: number;
   sex?: 'man' | 'woman';
-  borderColor?: 'GRAY' | 'PRIMARY';
+  borderColor?: keyof ThemeColors;
 }
 
 export const Avatar = ({
   img,
+  size,
   sex = 'man',
-  borderColor = 'GRAY',
+  style,
+  borderColor,
   ...rest
 }: IAvatarProps) => {
   return (
-    <Wrapper {...rest} borderColor={borderColor}>
+    <Wrapper
+      {...rest}
+      size={size}
+      borderColor={borderColor}
+      style={[{elevation: 5}, style]}>
       {img ? (
-        <Image source={{uri: img}} />
+        <Image size={size} source={{uri: img}} />
       ) : sex == 'man' ? (
-        <Image source={require('../../assets/man.png')} />
+        <Image size={size} source={require('../../assets/images/man.png')} />
       ) : (
-        <Image source={require('../../assets/woman.png')} />
+        <Image size={size} source={require('../../assets/images/woman.png')} />
       )}
     </Wrapper>
   );
