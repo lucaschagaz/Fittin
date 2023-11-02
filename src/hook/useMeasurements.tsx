@@ -1,10 +1,7 @@
 import React, {useState} from 'react';
 import {Pin, PinBox} from '../Pages/UserData/styles';
 
-export default function useMeasurements(
-  initalValue: number,
-  finishValue: number,
-) {
+export const useMeasurements = (initalValue: number, finishValue: number) => {
   const [measurements, setMeasurements] = useState<number>(initalValue);
   const [value, setValue] = useState<number[]>();
 
@@ -23,8 +20,8 @@ export default function useMeasurements(
         <PinBox key={data} onPress={() => setMeasurements(data)}>
           <Pin
             style={{
-              height: measurements == data ? 85 : 45,
-              backgroundColor: measurements == data ? '#001eff' : '#999',
+              height: measurements === data ? 85 : 45,
+              backgroundColor: measurements === data ? '#001eff' : '#999',
             }}
           />
         </PinBox>
@@ -34,8 +31,8 @@ export default function useMeasurements(
         <PinBox key={data} onPress={() => setMeasurements(data)}>
           <Pin
             style={{
-              height: measurements == data ? 85 : 25,
-              backgroundColor: measurements == data ? '#001eff' : '#999',
+              height: measurements === data ? 85 : 25,
+              backgroundColor: measurements === data ? '#001eff' : '#999',
             }}
           />
         </PinBox>
@@ -44,4 +41,4 @@ export default function useMeasurements(
   };
 
   return {renderPin, renderMeasurement, value, setMeasurements, measurements};
-}
+};
