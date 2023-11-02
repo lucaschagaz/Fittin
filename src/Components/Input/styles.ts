@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 
-export const InputBox = styled.View`
+export const InputWrapper = styled.View`
   width: 95%;
   padding: 0px 15px;
   height: 50px;

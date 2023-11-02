@@ -1,19 +1,16 @@
 import {TextInputProps} from 'react-native';
 import React from 'react';
-import {InputBox, InputFild} from './styles';
-
-import Icon from 'react-native-vector-icons';
+import {InputWrapper, InputFild} from './styles';
 
 interface IInputProps extends TextInputProps {
   label: string;
   iconType?: string;
 }
 
-export const Input = ({label, iconType, ...rest}: IInputProps) => {
+export const Input = ({label, style, ...rest}: IInputProps) => {
   return (
-    <InputBox>
+    <InputWrapper style={style}>
       <InputFild placeholder={label} {...rest} />
-      {/* {iconType ? <Icon name={iconType} size={20} /> : null} */}
-    </InputBox>
+    </InputWrapper>
   );
 };
