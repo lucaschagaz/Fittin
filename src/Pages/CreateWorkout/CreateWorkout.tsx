@@ -1,17 +1,19 @@
 import React, {useState} from 'react';
 import {Box, Button, Content, Text} from '../../Components';
 import {useNavigation} from '@react-navigation/native';
-import {RootScreenNavigationProp} from '../../@types/navigation';
+import {RootScreenNavigationProp, exercicesName} from '../../@types/navigation';
 import {Picker} from '@react-native-picker/picker';
 import {CheckBox} from '../WorkOuts/styles';
 import {useTheme} from 'styled-components';
 import {execicios} from '../../Utils/Mocks/Variabels';
 
 export const CreateWorkout = () => {
-  const [selected, setSelected] = useState({
-    dia: 'Segunda-feira',
-    grup: 'Peito',
-  });
+  const [selected, setSelected] = useState<{dia: string; group: exercicesName}>(
+    {
+      dia: 'Segunda-feira',
+      group: 'Peito',
+    },
+  );
 
   const {COLORS} = useTheme();
   const navigation = useNavigation<RootScreenNavigationProp>();
@@ -28,6 +30,8 @@ export const CreateWorkout = () => {
 
   const exercicios = Object.keys(execicios);
 
+  console.log(selected.group);
+
   return (
     <Content>
       <Text font="Heading_one" style={{marginBottom: 40}}>
@@ -41,12 +45,12 @@ export const CreateWorkout = () => {
         <Text font="Heading_three">Grupo muscular</Text>
         <Picker
           style={{width: '100%', marginTop: 10}}
-          selectedValue={selected.grup}
+          selectedValue={selected.group}
           onValueChange={itemValue =>
-            setSelected(prev => ({...prev, grup: itemValue}))
+            setSelected(prev => ({...prev, group: itemValue}))
           }>
           {exercicios.map(group => (
-            <Picker.Item label={group} value={group} />
+            <Picker.Item key={group} label={group} value={group} />
           ))}
         </Picker>
       </Box>
@@ -83,8 +87,8 @@ export const CreateWorkout = () => {
       </Box>
       <Button
         onPress={() =>
-          navigation.navigate('CreateWorkoutByGroup', {
-            group: selected.grup,
+          navigation.navigate('ExerciseByGruop', {
+            group: selected.group,
             day: selected.dia,
           })
         }
